@@ -48,9 +48,21 @@ function Index() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="tread relative bg-ink text-ink-foreground">
-          <div className="hazard h-2 w-full" />
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
+        <section className="tread relative isolate overflow-hidden bg-ink text-ink-foreground">
+          <video
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          >
+            <source src="/herovideo.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 z-0 bg-ink/75" aria-hidden="true" />
+          <div className="hazard relative z-10 h-2 w-full" />
+          <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
             <div>
               <div className="inline-flex items-center gap-2 rounded-sm border border-graphite-line bg-graphite px-3 py-1.5 text-xs font-semibold">
                 <span className={`h-2 w-2 rounded-full ${status?.open ? "bg-success" : "bg-destructive"}`} />

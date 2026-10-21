@@ -7,10 +7,11 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-graphite-line bg-graphite text-ink-foreground">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-sm bg-primary font-display text-lg font-bold text-primary-foreground">TT</span>
-          <span className="font-display text-lg font-semibold uppercase tracking-wide">
-            Tiptop <span className="text-primary">Tyres</span> & Wheels
-          </span>
+          <img
+            src="/tiptop-tyres-logo.png"
+            alt="Tiptop Tyres & Wheels"
+            className="h-14 w-auto object-contain"
+          />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
           <a href="/#finder" className="text-ink-muted hover:text-primary">Find Tyres</a>
@@ -36,7 +37,11 @@ export function Footer() {
     <footer className="bg-ink pb-24 pt-14 text-ink-foreground md:pb-10">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-2xl font-semibold uppercase">Tiptop <span className="text-primary">Tyres</span> & Wheels</p>
+          <img
+            src="/tiptop-tyres-logo.png"
+            alt="Tiptop Tyres & Wheels"
+            className="h-20 w-auto object-contain"
+          />
           <p className="mt-3 max-w-sm text-sm text-ink-muted">Tyre fitting, balancing, wheel alignment and repairs in Mount Druitt, NSW.</p>
           <div className="mt-5 flex gap-3">
             <a aria-label="Facebook" href="https://facebook.com" className="grid h-9 w-9 place-items-center rounded-md border border-graphite-line hover:border-primary hover:text-primary"><Facebook className="h-4 w-4" /></a>
