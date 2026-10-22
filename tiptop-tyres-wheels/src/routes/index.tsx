@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { BadgePercent, Clock, MapPin, ArrowRight } from "lucide-react";
 import { Header, Footer, MobileBar } from "@/components/site/Chrome";
+import { BrandsSection } from "@/components/BrandsSection";
 import { QuickTyreFinder } from "@/components/QuickTyreFinder";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Booking } from "@/components/site/Booking";
@@ -20,8 +21,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const brands = ["DUNLOP", "MICHELIN", "BRIDGESTONE", "Continental", "GOODYEAR", "PIRELLI", "YOKOHAMA"];
 
 function useStatus() {
   const [s, setS] = useState<ReturnType<typeof openStatus> | null>(null);
@@ -43,7 +42,7 @@ function Index() {
         {/* Hero */}
         <section className="tread relative isolate overflow-hidden bg-ink text-ink-foreground">
           <video
-            className="absolute inset-0 z-0 w-full h-full object-cover opacity-75 brightness-95"
+            className="absolute inset-0 z-0 w-full h-full object-cover opacity-85 brightness-100 transition-opacity duration-300"
             autoPlay
             loop
             muted
@@ -54,11 +53,7 @@ function Index() {
             <source src="/herovideo.mp4" type="video/mp4" />
           </video>
           <div
-            className="absolute inset-0 z-0 bg-gradient-to-r from-[#121316] via-[#121316]/80 to-transparent"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.78)_0%,rgba(9,9,11,0.48)_48%,rgba(9,9,11,0.24)_100%)]"
+            className="absolute inset-0 z-0 bg-[#121316]/50 backdrop-brightness-95 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_100%)]"
             aria-hidden="true"
           />
           <div className="hazard relative z-10 h-2 w-full" />
@@ -70,11 +65,9 @@ function Index() {
                 />
                 {status?.label ?? "Checking hours"}
               </div>
-              <h1 className="mt-6 font-sans text-2xl font-extrabold uppercase leading-tight tracking-tight sm:text-3xl md:text-4xl">
+              <h1 className="mt-6 font-sans text-2xl font-black uppercase leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
                 <span className="block text-white">Drive with confidence.</span>
-                <span className="mt-1 block text-[#FFC700]">
-                  Expert tyre &amp; wheel services in Mount Druitt
-                </span>
+                <span className="mt-1 block text-[#FFC700]">Expert tyre &amp; wheel services</span>
               </h1>
               <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-300 md:text-base">
                 Premium tyres, precision wheel alignment, and fast fitting in Mount Druitt.
@@ -89,13 +82,13 @@ function Index() {
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 <a
                   href="#services"
-                  className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-[#1E2026]/80 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:border-white"
+                  className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-[#1E2026]/80 px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black sm:text-base"
                 >
                   Explore Services <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="#booking"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#FFC700] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[#121316] transition-all duration-300 hover:scale-105 hover:bg-[#ffda4d]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#FFC700] px-8 py-4 text-sm font-black uppercase tracking-wider text-black shadow-xl shadow-black/30 transition-all duration-300 hover:scale-105 hover:bg-[#ffda4d] sm:text-base"
                 >
                   Book Appointment <ArrowRight className="h-4 w-4" />
                 </a>
@@ -108,17 +101,7 @@ function Index() {
 
         <ServicesSection />
 
-        {/* Brands */}
-        <section id="brands" className="border-y border-graphite-line bg-[#121316] py-12 text-ink-foreground">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-ink-muted">Brands we stock and fit</p>
-            <div className="mt-8 grid grid-cols-2 gap-px bg-graphite-line sm:grid-cols-4 lg:grid-cols-7">
-              {brands.map((b) => (
-                <div key={b} className="grid h-20 place-items-center bg-graphite font-display text-xl font-bold tracking-wider text-ink-muted transition-colors hover:text-ink-foreground">{b}</div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <BrandsSection />
 
         <Booking />
 

@@ -54,14 +54,14 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-zinc-300">
+      <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-300">
         {label}
       </span>
       <select
         disabled={disabled}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-12 w-full rounded-md border border-[#2E323D] bg-[#121316] px-3 text-sm font-medium text-white focus:border-[#FFC700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700] disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-xl border border-zinc-700 bg-[#22252A] px-4 py-3.5 text-sm font-medium text-white focus:border-[#FFC700] focus:outline-none focus:ring-1 focus:ring-[#FFC700] disabled:cursor-not-allowed disabled:opacity-50"
       >
         <option value="">Select {label.toLowerCase()}</option>
         {options.map((option) => (
@@ -123,133 +123,131 @@ export function QuickTyreFinder() {
   return (
     <section
       id="quick-tyre-finder"
-      className="relative z-20 -mt-16 bg-[#121316] pb-14 pt-8 text-white"
+      className="relative z-20 -mt-12 bg-[#F4F5F7] px-4 pb-14 pt-8 text-white sm:px-6"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="overflow-hidden rounded-xl border border-[#2E323D] bg-[#1E2026] shadow-2xl shadow-black/30">
-          <div className="border-b border-[#2E323D] px-5 py-5 sm:px-7">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFC700]">
-              Quick Tyre Finder
-            </p>
-            <h2 className="mt-1 text-2xl font-bold uppercase sm:text-3xl">
-              Find the right tyres for your drive
-            </h2>
-          </div>
-
-          <div
-            className="grid grid-cols-3 gap-2 border-b border-[#2E323D] bg-[#121316] p-2"
-            role="group"
-            aria-label="Choose how to find tyres"
-          >
-            {tabs.map(({ id, label, icon: Icon }) => {
-              const active = tab === id;
-              return (
-                <button
-                  key={id}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => {
-                    setTab(id);
-                    setResult(null);
-                  }}
-                  className={`flex min-h-14 items-center justify-center gap-2 px-2 py-3 text-xs font-bold tracking-wide transition-colors focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFC700] sm:text-sm ${
-                    active
-                      ? "rounded-md bg-[#FFC700] text-[#121316]"
-                      : "rounded-md bg-[#1E2026] text-[#9CA3AF] hover:text-white"
-                  }`}
-                >
-                  <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span>{label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <form onSubmit={submit} className="space-y-5 p-5 sm:p-7">
-            {tab === "size" && (
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <Select
-                  label="Width"
-                  value={values.width}
-                  onChange={setValue("width")}
-                  options={WIDTHS}
-                />
-                <Select
-                  label="Profile"
-                  value={values.profile}
-                  onChange={setValue("profile")}
-                  options={PROFILES}
-                />
-                <Select label="Rim" value={values.rim} onChange={setValue("rim")} options={RIMS} />
-              </div>
-            )}
-
-            {tab === "vehicle" && (
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <Select
-                  label="Make"
-                  value={values.make}
-                  onChange={setValue("make")}
-                  options={Object.keys(MAKES)}
-                />
-                <Select
-                  label="Model"
-                  value={values.model}
-                  onChange={setValue("model")}
-                  options={MAKES[values.make] ?? []}
-                  disabled={!values.make}
-                />
-                <Select
-                  label="Year"
-                  value={values.year}
-                  onChange={setValue("year")}
-                  options={YEARS}
-                />
-              </div>
-            )}
-
-            {tab === "rego" && (
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-[160px_1fr]">
-                <Select
-                  label="State"
-                  value={values.state}
-                  onChange={setValue("state")}
-                  options={STATES}
-                />
-                <label className="block">
-                  <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-zinc-300">
-                    License plate
-                  </span>
-                  <input
-                    aria-label="License plate"
-                    value={values.plate}
-                    onChange={(event) => setValue("plate")(event.target.value)}
-                    maxLength={9}
-                    autoComplete="off"
-                    placeholder="ABC 123"
-                    className="h-12 w-full rounded-md border border-[#2E323D] bg-[#121316] px-3 font-display text-lg uppercase tracking-[0.2em] text-white placeholder:text-zinc-500 focus:border-[#FFC700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700]"
-                  />
-                </label>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={!ready}
-              className="flex w-full items-center justify-center gap-2 rounded-md bg-[#FFC700] px-5 py-4 text-lg font-bold uppercase tracking-wider text-[#121316] transition-colors hover:bg-[#ffda4d] disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              <Search className="h-5 w-5" aria-hidden="true" />
-              Find My Tyres
-            </button>
-
-            {result && (
-              <p role="status" className="text-sm text-zinc-300">
-                Got it: <strong className="text-white">{result}</strong>. Book a fitting below and
-                we will have the right tyres ready.
-              </p>
-            )}
-          </form>
+      <div className="relative z-20 mx-auto max-w-5xl rounded-2xl border border-zinc-800 border-t-4 border-t-[#FFC700] bg-[#18191E] p-6 shadow-2xl sm:p-8">
+        <div className="border-b border-[#2E323D] pb-5">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFC700]">
+            Quick Tyre Finder
+          </p>
+          <h2 className="mt-1 text-2xl font-bold uppercase sm:text-3xl">
+            Find the right tyres for your drive
+          </h2>
         </div>
+
+        <div
+          className="mt-5 grid grid-cols-3 gap-2"
+          role="group"
+          aria-label="Choose how to find tyres"
+        >
+          {tabs.map(({ id, label, icon: Icon }) => {
+            const active = tab === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                aria-pressed={active}
+                onClick={() => {
+                  setTab(id);
+                  setResult(null);
+                }}
+                className={`flex min-h-14 items-center justify-center gap-2 rounded-xl border px-2 py-3 text-xs tracking-wide transition-all focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFC700] sm:text-sm ${
+                  active
+                    ? "border-[#FFC700] bg-[#FFC700] font-extrabold text-black shadow-lg shadow-[#FFC700]/10"
+                    : "border-zinc-700/50 bg-[#22252A] font-bold text-zinc-300 hover:bg-[#2A2E35] hover:text-white"
+                }`}
+              >
+                <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <form onSubmit={submit} className="space-y-5 pt-5">
+          {tab === "size" && (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <Select
+                label="Width"
+                value={values.width}
+                onChange={setValue("width")}
+                options={WIDTHS}
+              />
+              <Select
+                label="Profile"
+                value={values.profile}
+                onChange={setValue("profile")}
+                options={PROFILES}
+              />
+              <Select label="Rim" value={values.rim} onChange={setValue("rim")} options={RIMS} />
+            </div>
+          )}
+
+          {tab === "vehicle" && (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <Select
+                label="Make"
+                value={values.make}
+                onChange={setValue("make")}
+                options={Object.keys(MAKES)}
+              />
+              <Select
+                label="Model"
+                value={values.model}
+                onChange={setValue("model")}
+                options={MAKES[values.make] ?? []}
+                disabled={!values.make}
+              />
+              <Select
+                label="Year"
+                value={values.year}
+                onChange={setValue("year")}
+                options={YEARS}
+              />
+            </div>
+          )}
+
+          {tab === "rego" && (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-[160px_1fr]">
+              <Select
+                label="State"
+                value={values.state}
+                onChange={setValue("state")}
+                options={STATES}
+              />
+              <label className="block">
+                <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-300">
+                  License plate
+                </span>
+                <input
+                  aria-label="License plate"
+                  value={values.plate}
+                  onChange={(event) => setValue("plate")(event.target.value)}
+                  maxLength={9}
+                  autoComplete="off"
+                  placeholder="ABC 123"
+                  className="w-full rounded-xl border border-zinc-700 bg-[#22252A] px-4 py-3.5 font-display text-lg uppercase tracking-[0.2em] text-white placeholder:text-zinc-500 focus:border-[#FFC700] focus:outline-none focus:ring-1 focus:ring-[#FFC700]"
+                />
+              </label>
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={!ready}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC700] px-8 py-4 text-base font-black uppercase tracking-wider text-black shadow-xl transition-all hover:scale-[1.01] hover:bg-[#e6b300] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+          >
+            <Search className="h-5 w-5" aria-hidden="true" />
+            Find My Tyres
+          </button>
+
+          {result && (
+            <p role="status" className="text-sm text-zinc-300">
+              Got it: <strong className="text-white">{result}</strong>. Book a fitting below and we
+              will have the right tyres ready.
+            </p>
+          )}
+        </form>
       </div>
     </section>
   );
