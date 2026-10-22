@@ -1,8 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Crosshair, CircleDot, Wrench, Mountain, Car, ShieldCheck, BadgePercent, Clock, MapPin, Phone, ArrowRight } from "lucide-react";
+import {
+  Crosshair,
+  CircleDot,
+  Wrench,
+  Mountain,
+  Car,
+  ShieldCheck,
+  BadgePercent,
+  Clock,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import { Header, Footer, MobileBar } from "@/components/site/Chrome";
-import { TyreFinder } from "@/components/site/TyreFinder";
+import { QuickTyreFinder } from "@/components/QuickTyreFinder";
 import { Booking } from "@/components/site/Booking";
 import { BUSINESS, HOURS, DAY_NAMES, fmtHour, openStatus } from "@/lib/business";
 
@@ -50,7 +61,7 @@ function Index() {
         {/* Hero */}
         <section className="tread relative isolate overflow-hidden bg-ink text-ink-foreground">
           <video
-            className="absolute inset-0 z-0 h-full w-full object-cover"
+            className="absolute inset-0 z-0 w-full h-full object-cover opacity-75 brightness-95"
             autoPlay
             loop
             muted
@@ -60,30 +71,52 @@ function Index() {
           >
             <source src="/herovideo.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 z-0 bg-ink/75" aria-hidden="true" />
+          <div
+            className="absolute inset-0 z-0 bg-gradient-to-r from-zinc-950 via-zinc-950/70 to-transparent"
+            aria-hidden="true"
+          />
           <div className="hazard relative z-10 h-2 w-full" />
-          <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:py-24">
-            <div>
+          <div className="relative z-10 mx-auto max-w-7xl px-4 pb-28 pt-16 sm:px-6 lg:pt-24">
+            <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-sm border border-graphite-line bg-graphite px-3 py-1.5 text-xs font-semibold">
-                <span className={`h-2 w-2 rounded-full ${status?.open ? "bg-success" : "bg-destructive"}`} />
+                <span
+                  className={`h-2 w-2 rounded-full ${status?.open ? "bg-success" : "bg-destructive"}`}
+                />
                 {status?.label ?? "Checking hours"}
               </div>
-              <h1 className="mt-6 text-5xl font-bold uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
-                Drive with confidence.<br /><span className="text-primary">Expert tyre fitting</span> & wheel services.
+              <h1 className="mt-6 font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
+                <span className="block text-white">Drive with confidence.</span>
+                <span className="block text-[#FFC700]">Expert tyre &amp; wheel services.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-ink-muted">Premium tyres, wheel alignment and instant fitting in Mount Druitt. Walk in or book online.</p>
-              <div className="mt-8 flex items-start gap-3 rounded-md border-l-4 border-primary bg-graphite p-4">
-                <BadgePercent className="h-6 w-6 shrink-0 text-primary" />
-                <p className="font-semibold">We beat any local competitor price by at least 5%. <span className="font-normal text-ink-muted">Show us the quote.</span></p>
+              <p className="mt-5 max-w-xl text-base text-ink-muted sm:text-lg">
+                Premium tyres, precision wheel alignment, and fast fitting in Mount Druitt.
+              </p>
+              <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/80 px-4 py-2 text-sm text-white backdrop-blur-md">
+                <BadgePercent className="h-5 w-5 shrink-0 text-primary" />
+                <p className="font-semibold">
+                  We beat local competitor prices by at least 5%.{" "}
+                  <span className="font-normal text-ink-muted">Show us the quote.</span>
+                </p>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#booking" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-bold uppercase tracking-wide text-primary-foreground hover:bg-accent">Book a Fitting <ArrowRight className="h-4 w-4" /></a>
-                <a href={BUSINESS.phoneHref} className="inline-flex items-center gap-2 rounded-md border-2 border-ink-foreground px-6 py-3 font-bold uppercase tracking-wide hover:border-primary hover:text-primary"><Phone className="h-4 w-4" /> {BUSINESS.phone}</a>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <a
+                  href="#services"
+                  className="inline-flex items-center gap-2 rounded-md border-2 border-ink-foreground px-6 py-3.5 font-bold uppercase tracking-wide hover:border-primary hover:text-primary"
+                >
+                  Explore Services <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href="#booking"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#FFC700] px-6 py-3.5 font-bold uppercase tracking-wide text-zinc-950 hover:bg-[#ffda4d]"
+                >
+                  Book Appointment <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
-            <TyreFinder />
           </div>
         </section>
+
+        <QuickTyreFinder />
 
         {/* Services */}
         <section id="services" className="py-20">
