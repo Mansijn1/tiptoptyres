@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CircleDot } from "lucide-react";
 
 const brands = [
   "DUNLOP",
@@ -22,22 +22,42 @@ export function BrandsSection() {
             Trusted brands we stock &amp; fit
           </span>
         </div>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
-          {brands.map((brand) => (
-            <a
-              key={brand}
-              href="#quick-tyre-finder"
-              className="group flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-[#2E323D] bg-[#1E2026] px-3 py-5 text-center transition-all duration-300 hover:scale-105 hover:border-[#FFC700] hover:shadow-lg hover:shadow-[#FFC700]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700]"
-            >
-              <span className="font-display text-sm font-bold tracking-wide text-white sm:text-base">
-                {brand}
-              </span>
-              <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-[#FFC700] opacity-100 transition-opacity md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
-                View Range
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
-            </a>
-          ))}
+        <div
+          className="brand-ticker mt-9 overflow-hidden"
+          role="region"
+          aria-label="Brands we stock and fit"
+        >
+          <div className="animate-brand-ticker flex w-max">
+            <div className="flex shrink-0 gap-3 pr-3">
+              {brands.map((brand) => (
+                <a
+                  key={brand}
+                  href="#quick-tyre-finder"
+                  className="group flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-zinc-800 bg-[#121316] px-6 py-3 text-sm font-extrabold tracking-wider text-white shadow-md transition-colors hover:border-[#FFC700] hover:text-[#FFC700] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700]"
+                >
+                  <CircleDot className="h-4 w-4 text-[#FFC700]" aria-hidden="true" />
+                  {brand}
+                  <span className="sr-only"> - view tyre range</span>
+                  <ArrowRight
+                    className="h-4 w-4 text-[#FFC700] transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </a>
+              ))}
+            </div>
+            <div className="flex shrink-0 gap-3 pr-3" aria-hidden="true">
+              {brands.map((brand) => (
+                <span
+                  key={brand}
+                  className="flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-zinc-800 bg-[#121316] px-6 py-3 text-sm font-extrabold tracking-wider text-white shadow-md"
+                >
+                  <CircleDot className="h-4 w-4 text-[#FFC700]" />
+                  {brand}
+                  <ArrowRight className="h-4 w-4 text-[#FFC700]" />
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, MapPin, Mail, Facebook, Instagram } from "lucide-react";
+import { ArrowRight, Phone, MapPin, Mail, Facebook, Instagram, Music2 } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 
 export function Header() {
@@ -14,16 +14,30 @@ export function Header() {
           />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
-          <a href="/#quick-tyre-finder" className="text-ink-muted hover:text-primary">Find Tyres</a>
-          <a href="/#services" className="text-ink-muted hover:text-primary">Services</a>
-          <a href="/#brands" className="text-ink-muted hover:text-primary">Brands</a>
-          <a href="/#location" className="text-ink-muted hover:text-primary">Location</a>
+          <a href="/#quick-tyre-finder" className="text-ink-muted hover:text-primary">
+            Find Tyres
+          </a>
+          <a href="/#services" className="text-ink-muted hover:text-primary">
+            Services
+          </a>
+          <a href="/#brands" className="text-ink-muted hover:text-primary">
+            Brands
+          </a>
+          <a href="/#location" className="text-ink-muted hover:text-primary">
+            Location
+          </a>
         </nav>
         <div className="flex items-center gap-3">
-          <a href={BUSINESS.phoneHref} className="hidden items-center gap-2 text-sm font-semibold lg:flex">
+          <a
+            href={BUSINESS.phoneHref}
+            className="hidden items-center gap-2 text-sm font-semibold lg:flex"
+          >
             <Phone className="h-4 w-4 text-primary" /> {BUSINESS.phone}
           </a>
-          <a href="/#booking" className="rounded-md bg-primary px-4 py-2 text-sm font-bold uppercase tracking-wide text-primary-foreground hover:bg-accent">
+          <a
+            href="/#booking"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-bold uppercase tracking-wide text-primary-foreground hover:bg-accent"
+          >
             Book Now
           </a>
         </div>
@@ -34,36 +48,113 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="bg-ink pb-24 pt-14 text-ink-foreground md:pb-10">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-4">
-        <div className="md:col-span-2">
+    <footer className="border-t border-zinc-800 bg-[#0D0E10] pb-24 pt-16 text-sm text-zinc-400 md:pb-10">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
           <img
             src="/tiptop-tyres-logo.png"
             alt="Tiptop Tyres & Wheels"
-            className="h-20 w-auto object-contain"
+            className="h-16 w-auto object-contain"
           />
-          <p className="mt-3 max-w-sm text-sm text-ink-muted">Tyre fitting, balancing, wheel alignment and repairs in Mount Druitt, NSW.</p>
-          <div className="mt-5 flex gap-3">
-            <a aria-label="Facebook" href="https://facebook.com" className="grid h-9 w-9 place-items-center rounded-md border border-graphite-line hover:border-primary hover:text-primary"><Facebook className="h-4 w-4" /></a>
-            <a aria-label="Instagram" href="https://instagram.com" className="grid h-9 w-9 place-items-center rounded-md border border-graphite-line hover:border-primary hover:text-primary"><Instagram className="h-4 w-4" /></a>
+          <p className="mt-4 max-w-xs leading-6">
+            Local tyre and wheel experts. Quality fitting, trusted advice, and a better drive from
+            Mount Druitt.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <a
+              aria-label="Facebook"
+              href="https://facebook.com"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+            >
+              <Facebook className="h-4 w-4" aria-hidden="true" /> Facebook
+            </a>
+            <a
+              aria-label="Instagram"
+              href="https://instagram.com"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+            >
+              <Instagram className="h-4 w-4" aria-hidden="true" /> Instagram
+            </a>
+            <a
+              aria-label="TikTok"
+              href="https://www.tiktok.com"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+            >
+              <Music2 className="h-4 w-4" aria-hidden="true" /> TikTok
+            </a>
           </div>
         </div>
-        <div className="space-y-3 text-sm">
-          <p className="font-display uppercase tracking-wider text-primary">Contact</p>
-          <a href={BUSINESS.phoneHref} className="flex gap-2 hover:text-primary"><Phone className="h-4 w-4 shrink-0" />{BUSINESS.phone}</a>
-          <a href={`mailto:${BUSINESS.email}`} className="flex gap-2 hover:text-primary"><Mail className="h-4 w-4 shrink-0" />{BUSINESS.email}</a>
-          <p className="flex gap-2 text-ink-muted"><MapPin className="h-4 w-4 shrink-0" />{BUSINESS.address}</p>
+
+        <div className="space-y-4">
+          <h2 className="font-display font-bold uppercase tracking-wider text-white">
+            Quick Links
+          </h2>
+          {[
+            ["Find Tyres", "/#quick-tyre-finder"],
+            ["Wheel Alignment", "/#services"],
+            ["Puncture Repair", "/#services"],
+            ["4WD Wheels", "/#services"],
+            ["Safety Checks", "/#services"],
+          ].map(([label, href]) => (
+            <a
+              key={label}
+              href={href}
+              className="group flex w-fit items-center gap-2 transition-colors hover:text-primary"
+            >
+              <ArrowRight
+                className="h-3.5 w-3.5 -translate-x-1 text-primary opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
+                aria-hidden="true"
+              />
+              {label}
+            </a>
+          ))}
         </div>
-        <div className="space-y-3 text-sm">
-          <p className="font-display uppercase tracking-wider text-primary">Legal</p>
-          <Link to="/privacy-policy" className="block text-ink-muted hover:text-primary">Privacy Policy</Link>
-          <Link to="/terms" className="block text-ink-muted hover:text-primary">Terms & Conditions</Link>
-          <Link to="/shipping-policy" className="block text-ink-muted hover:text-primary">Shipping Policy</Link>
-          <Link to="/refund-policy" className="block text-ink-muted hover:text-primary">Refund & Return Policy</Link>
+
+        <div className="space-y-4">
+          <h2 className="font-display font-bold uppercase tracking-wider text-white">Contact</h2>
+          <a
+            href={BUSINESS.phoneHref}
+            className="flex items-start gap-3 transition-colors hover:text-primary"
+          >
+            <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+            {BUSINESS.phone}
+          </a>
+          <a
+            href={`mailto:${BUSINESS.email}`}
+            className="flex items-start gap-3 transition-colors hover:text-primary"
+          >
+            <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+            {BUSINESS.email}
+          </a>
+          <p className="flex items-start gap-3">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+            Mount Druitt, NSW
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <h2 className="font-display font-bold uppercase tracking-wider text-white">Legal</h2>
+          <Link to="/privacy-policy" className="block transition-colors hover:text-primary">
+            Privacy Policy
+          </Link>
+          <Link to="/terms" className="block transition-colors hover:text-primary">
+            Terms &amp; Conditions
+          </Link>
+          <Link to="/shipping-policy" className="block transition-colors hover:text-primary">
+            Shipping Policy
+          </Link>
+          <Link to="/refund-policy" className="block transition-colors hover:text-primary">
+            Refund &amp; Return Policy
+          </Link>
         </div>
       </div>
-      <div className="mx-auto mt-10 max-w-7xl border-t border-graphite-line px-4 pt-6 text-xs text-ink-muted sm:px-6">
-        © {new Date().getFullYear()} Tiptop Tyres & Wheels. All rights reserved.
+
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-4 border-t border-zinc-800 px-4 pt-6 text-xs sm:px-6 md:flex-row md:items-center md:justify-between">
+        <p>© {new Date().getFullYear()} Tiptop Tyres &amp; Wheels. All rights reserved.</p>
+        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-zinc-700 bg-[#121316] px-3 py-2 font-semibold text-zinc-300">
+          <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+          Open 6 days a week in Mount Druitt
+        </span>
       </div>
     </footer>
   );
@@ -72,10 +163,18 @@ export function Footer() {
 export function MobileBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-graphite-line bg-graphite md:hidden">
-      <a href={BUSINESS.phoneHref} className="flex items-center justify-center gap-2 bg-primary py-4 font-bold uppercase text-primary-foreground">
+      <a
+        href={BUSINESS.phoneHref}
+        className="flex items-center justify-center gap-2 bg-primary py-4 font-bold uppercase text-primary-foreground"
+      >
         <Phone className="h-5 w-5" /> Call Now
       </a>
-      <a href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.mapsQuery}`} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 py-4 font-bold uppercase text-ink-foreground">
+      <a
+        href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.mapsQuery}`}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center justify-center gap-2 py-4 font-bold uppercase text-ink-foreground"
+      >
         <MapPin className="h-5 w-5 text-primary" /> Get Directions
       </a>
     </div>

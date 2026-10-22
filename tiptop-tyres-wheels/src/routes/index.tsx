@@ -65,12 +65,12 @@ function Index() {
                 />
                 {status?.label ?? "Checking hours"}
               </div>
-              <h1 className="mt-6 font-sans text-2xl font-black uppercase leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
+              <h1 className="mt-6 font-sans text-2xl font-black uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
                 <span className="block text-white">Drive with confidence.</span>
                 <span className="mt-1 block text-[#FFC700]">Expert tyre &amp; wheel services</span>
               </h1>
-              <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-300 md:text-base">
-                Premium tyres, precision wheel alignment, and fast fitting in Mount Druitt.
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-zinc-200 md:text-base">
+                Premium tyres, precision alignment and fast fitting in Mount Druitt.
               </p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-blue-500/30 bg-blue-600 px-4 py-2 text-sm text-white shadow-lg shadow-blue-950/30">
                 <BadgePercent className="h-5 w-5 shrink-0 text-white" />

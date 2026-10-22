@@ -54,14 +54,14 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-300">
+      <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-700">
         {label}
       </span>
       <select
         disabled={disabled}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-xl border border-zinc-700 bg-[#22252A] px-4 py-3.5 text-sm font-medium text-white focus:border-[#FFC700] focus:outline-none focus:ring-1 focus:ring-[#FFC700] disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-xl border-2 border-zinc-300 bg-white px-4 py-3.5 text-sm font-medium text-zinc-900 focus:border-[#FFC700] focus:outline-none focus:ring-1 focus:ring-[#FFC700] disabled:cursor-not-allowed disabled:opacity-50"
       >
         <option value="">Select {label.toLowerCase()}</option>
         {options.map((option) => (
@@ -123,14 +123,14 @@ export function QuickTyreFinder() {
   return (
     <section
       id="quick-tyre-finder"
-      className="relative z-20 -mt-12 bg-[#F4F5F7] px-4 pb-14 pt-8 text-white sm:px-6"
+      className="relative z-20 -mt-12 bg-[#F4F5F7] px-4 pb-14 pt-8 text-[#121316] sm:px-6"
     >
-      <div className="relative z-20 mx-auto max-w-5xl rounded-2xl border border-zinc-800 border-t-4 border-t-[#FFC700] bg-[#18191E] p-6 shadow-2xl sm:p-8">
-        <div className="border-b border-[#2E323D] pb-5">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFC700]">
+      <div className="relative z-20 mx-auto max-w-5xl rounded-2xl border border-zinc-200 border-t-4 border-t-[#FFC700] bg-white p-6 shadow-2xl sm:p-8">
+        <div className="border-b border-zinc-200 pb-5">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">
             Quick Tyre Finder
           </p>
-          <h2 className="mt-1 text-2xl font-bold uppercase sm:text-3xl">
+          <h2 className="mt-1 text-2xl font-bold uppercase text-[#121316] sm:text-3xl">
             Find the right tyres for your drive
           </h2>
         </div>
@@ -153,8 +153,8 @@ export function QuickTyreFinder() {
                 }}
                 className={`flex min-h-14 items-center justify-center gap-2 rounded-xl border px-2 py-3 text-xs tracking-wide transition-all focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFC700] sm:text-sm ${
                   active
-                    ? "border-[#FFC700] bg-[#FFC700] font-extrabold text-black shadow-lg shadow-[#FFC700]/10"
-                    : "border-zinc-700/50 bg-[#22252A] font-bold text-zinc-300 hover:bg-[#2A2E35] hover:text-white"
+                    ? "border-[#FFC700] bg-[#FFC700] font-extrabold text-black shadow-md shadow-[#FFC700]/20"
+                    : "border-zinc-200 bg-zinc-100 font-bold text-zinc-700 hover:bg-zinc-200 hover:text-zinc-950"
                 }`}
               >
                 <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -216,7 +216,7 @@ export function QuickTyreFinder() {
                 options={STATES}
               />
               <label className="block">
-                <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-300">
+                <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-zinc-700">
                   License plate
                 </span>
                 <input
@@ -226,7 +226,7 @@ export function QuickTyreFinder() {
                   maxLength={9}
                   autoComplete="off"
                   placeholder="ABC 123"
-                  className="w-full rounded-xl border border-zinc-700 bg-[#22252A] px-4 py-3.5 font-display text-lg uppercase tracking-[0.2em] text-white placeholder:text-zinc-500 focus:border-[#FFC700] focus:outline-none focus:ring-1 focus:ring-[#FFC700]"
+                  className="w-full rounded-xl border-2 border-zinc-300 bg-white px-4 py-3.5 font-display text-lg uppercase tracking-[0.2em] text-zinc-900 placeholder:text-zinc-500 focus:border-[#FFC700] focus:outline-none focus:ring-1 focus:ring-[#FFC700]"
                 />
               </label>
             </div>
@@ -235,16 +235,16 @@ export function QuickTyreFinder() {
           <button
             type="submit"
             disabled={!ready}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC700] px-8 py-4 text-base font-black uppercase tracking-wider text-black shadow-xl transition-all hover:scale-[1.01] hover:bg-[#e6b300] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC700] px-8 py-4 text-base font-black uppercase tracking-wider text-black shadow-xl transition-all duration-300 hover:scale-[1.01] hover:bg-[#e6b300] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
           >
             <Search className="h-5 w-5" aria-hidden="true" />
             Find My Tyres
           </button>
 
           {result && (
-            <p role="status" className="text-sm text-zinc-300">
-              Got it: <strong className="text-white">{result}</strong>. Book a fitting below and we
-              will have the right tyres ready.
+            <p role="status" className="text-sm text-zinc-600">
+              Got it: <strong className="text-zinc-950">{result}</strong>. Book a fitting below and
+              we will have the right tyres ready.
             </p>
           )}
         </form>

@@ -67,14 +67,20 @@ export function ServicesSection() {
           {services.map(({ icon: Icon, title, description, image, imageAlt }) => (
             <article
               key={title}
-              className="group overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[#FFC700] hover:shadow-xl"
+              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#FFC700] hover:shadow-2xl"
             >
-              <img
-                src={image}
-                alt={imageAlt}
-                loading="lazy"
-                className="h-48 w-full rounded-t-xl object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={image}
+                  alt={imageAlt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"
+                  aria-hidden="true"
+                />
+              </div>
               <div className="p-6">
                 <Icon className="h-8 w-8 text-[#FFC700]" strokeWidth={1.7} aria-hidden="true" />
                 <h3 className="mt-4 text-xl font-bold uppercase text-[#121316]">{title}</h3>
@@ -85,7 +91,7 @@ export function ServicesSection() {
                 >
                   Book Service
                   <ArrowRight
-                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                     aria-hidden="true"
                   />
                 </a>
