@@ -57,20 +57,26 @@ function Index() {
             className="absolute inset-0 z-0 bg-gradient-to-r from-[#121316] via-[#121316]/80 to-transparent"
             aria-hidden="true"
           />
+          <div
+            className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(9,9,11,0.78)_0%,rgba(9,9,11,0.48)_48%,rgba(9,9,11,0.24)_100%)]"
+            aria-hidden="true"
+          />
           <div className="hazard relative z-10 h-2 w-full" />
           <div className="relative z-10 mx-auto max-w-7xl px-4 pb-28 pt-16 sm:px-6 lg:pt-24">
-            <div className="max-w-2xl text-left lg:text-left">
+            <div className="mx-auto max-w-3xl text-center">
               <div className="inline-flex items-center gap-2 rounded-sm border border-graphite-line bg-graphite px-3 py-1.5 text-xs font-semibold">
                 <span
                   className={`h-2 w-2 rounded-full ${status?.open ? "bg-success" : "bg-destructive"}`}
                 />
                 {status?.label ?? "Checking hours"}
               </div>
-              <h1 className="mt-6 font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
+              <h1 className="mt-6 font-sans text-2xl font-extrabold uppercase leading-tight tracking-tight sm:text-3xl md:text-4xl">
                 <span className="block text-white">Drive with confidence.</span>
-                <span className="block text-[#FFC700]">Expert tyre &amp; wheel services.</span>
+                <span className="mt-1 block text-[#FFC700]">
+                  Expert tyre &amp; wheel services in Mount Druitt
+                </span>
               </h1>
-              <p className="mt-5 max-w-xl text-base text-ink-muted sm:text-lg">
+              <p className="mx-auto mt-5 max-w-xl text-sm text-zinc-300 md:text-base">
                 Premium tyres, precision wheel alignment, and fast fitting in Mount Druitt.
               </p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-blue-500/30 bg-blue-600 px-4 py-2 text-sm text-white shadow-lg shadow-blue-950/30">
@@ -80,16 +86,16 @@ function Index() {
                   <span className="font-normal text-blue-100">Show us the quote.</span>
                 </p>
               </div>
-              <div className="mt-6 flex flex-wrap gap-4">
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
                 <a
                   href="#services"
-                  className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-[#1E2026]/80 px-8 py-4 text-base font-extrabold uppercase tracking-wider text-white transition-all hover:border-white"
+                  className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-[#1E2026]/80 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:border-white"
                 >
                   Explore Services <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="#booking"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#FFC700] px-8 py-4 text-base font-extrabold uppercase tracking-wider text-[#121316] transition-all hover:scale-105 hover:bg-[#ffda4d]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#FFC700] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[#121316] transition-all duration-300 hover:scale-105 hover:bg-[#ffda4d]"
                 >
                   Book Appointment <ArrowRight className="h-4 w-4" />
                 </a>
@@ -103,7 +109,7 @@ function Index() {
         <ServicesSection />
 
         {/* Brands */}
-        <section id="brands" className="border-y border-graphite-line bg-graphite py-12 text-ink-foreground">
+        <section id="brands" className="border-y border-graphite-line bg-[#121316] py-12 text-ink-foreground">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-ink-muted">Brands we stock and fit</p>
             <div className="mt-8 grid grid-cols-2 gap-px bg-graphite-line sm:grid-cols-4 lg:grid-cols-7">
@@ -117,16 +123,16 @@ function Index() {
         <Booking />
 
         {/* Location */}
-        <section id="location" className="py-20">
+        <section id="location" className="bg-white py-20 text-[#121316]">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
             <div>
               <p className="text-sm font-bold uppercase tracking-widest text-accent">Visit the workshop</p>
               <h2 className="mt-2 text-4xl font-bold uppercase">Mount Druitt, NSW</h2>
-              <p className="mt-4 flex gap-2"><MapPin className="h-5 w-5 shrink-0 text-accent" />{BUSINESS.address}</p>
-              <div className={`mt-6 inline-flex items-center gap-2 rounded-sm px-3 py-2 text-sm font-bold ${status?.open ? "bg-success/15 text-foreground" : "bg-muted text-foreground"}`}>
+              <p className="mt-4 flex gap-2 text-zinc-700"><MapPin className="h-5 w-5 shrink-0 text-accent" />{BUSINESS.address}</p>
+              <div className={`mt-6 inline-flex items-center gap-2 rounded-sm px-3 py-2 text-sm font-bold ${status?.open ? "bg-green-100 text-green-900" : "bg-zinc-100 text-zinc-800"}`}>
                 <Clock className="h-4 w-4" /> {status?.label ?? "Checking hours"}
               </div>
-              <table className="mt-6 w-full text-sm">
+              <table className="mt-6 w-full text-sm text-zinc-700">
                 <tbody>
                   {[1, 2, 3, 4, 5, 6, 0].map((d) => (
                     <tr key={d} className={`border-b border-border ${status?.day === d ? "font-bold" : ""}`}>
@@ -136,9 +142,9 @@ function Index() {
                   ))}
                 </tbody>
               </table>
-              <a href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.mapsQuery}`} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-bold uppercase text-ink-foreground hover:bg-graphite">Get Directions <ArrowRight className="h-4 w-4" /></a>
+              <a href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.mapsQuery}`} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-ink px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-ink-foreground transition-all duration-300 hover:scale-105 hover:bg-graphite">Get Directions <ArrowRight className="h-4 w-4" /></a>
             </div>
-            <div className="min-h-[380px] overflow-hidden rounded-lg border border-border">
+            <div className="min-h-[380px] overflow-hidden rounded-lg border border-zinc-200">
               <iframe title="Tiptop Tyres location map" src={`https://www.google.com/maps?q=${BUSINESS.mapsQuery}&output=embed`} className="h-full min-h-[380px] w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
             </div>
           </div>

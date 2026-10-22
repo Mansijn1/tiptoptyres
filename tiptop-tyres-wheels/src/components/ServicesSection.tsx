@@ -53,12 +53,12 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-[#121316] py-20 text-white sm:py-24">
+    <section id="services" className="bg-[#F8F9FA] py-20 text-[#121316] sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFC700]">What we do</p>
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-700">What we do</p>
         <div className="mt-2 flex flex-wrap items-end justify-between gap-4">
           <h2 className="max-w-xl text-4xl font-bold uppercase sm:text-5xl">Workshop services</h2>
-          <p className="max-w-md text-sm leading-6 text-[#9CA3AF]">
+          <p className="max-w-md text-sm leading-6 text-zinc-600">
             Expert tyre care and wheel services, backed by quality workmanship and a local team.
           </p>
         </div>
@@ -67,7 +67,7 @@ export function ServicesSection() {
           {services.map(({ icon: Icon, title, description, image, imageAlt }) => (
             <article
               key={title}
-              className="group overflow-hidden rounded-xl border border-[#2E323D] bg-[#1E2026] transition-all duration-300 hover:-translate-y-1 hover:border-[#FFC700] hover:shadow-lg hover:shadow-black/20"
+              className="group overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[#FFC700] hover:shadow-xl"
             >
               <img
                 src={image}
@@ -77,11 +77,11 @@ export function ServicesSection() {
               />
               <div className="p-6">
                 <Icon className="h-8 w-8 text-[#FFC700]" strokeWidth={1.7} aria-hidden="true" />
-                <h3 className="mt-4 text-xl font-bold uppercase text-white">{title}</h3>
-                <p className="mt-2 min-h-12 text-sm leading-6 text-[#9CA3AF]">{description}</p>
+                <h3 className="mt-4 text-xl font-bold uppercase text-[#121316]">{title}</h3>
+                <p className="mt-2 min-h-12 text-sm leading-6 text-zinc-600">{description}</p>
                 <a
                   href="#booking"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-[#FFC700] hover:text-white"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-amber-700 transition-all duration-300 hover:scale-105 hover:text-[#121316]"
                 >
                   Book Service
                   <ArrowRight
