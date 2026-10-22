@@ -1,19 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import {
-  Crosshair,
-  CircleDot,
-  Wrench,
-  Mountain,
-  Car,
-  ShieldCheck,
-  BadgePercent,
-  Clock,
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
+import { BadgePercent, Clock, MapPin, ArrowRight } from "lucide-react";
 import { Header, Footer, MobileBar } from "@/components/site/Chrome";
 import { QuickTyreFinder } from "@/components/QuickTyreFinder";
+import { ServicesSection } from "@/components/ServicesSection";
 import { Booking } from "@/components/site/Booking";
 import { BUSINESS, HOURS, DAY_NAMES, fmtHour, openStatus } from "@/lib/business";
 
@@ -31,14 +21,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const services = [
-  { icon: Crosshair, title: "Wheel Alignment", desc: "Precision laser alignment to stop pulling and uneven tyre wear." },
-  { icon: CircleDot, title: "Tyre Fitting & Balancing", desc: "Fast fitting and computerised balancing for a smooth ride." },
-  { icon: Wrench, title: "Puncture & Tyre Repairs", desc: "Plug and patch repairs done to Australian standards." },
-  { icon: Mountain, title: "4WD & Off-Road Wheels", desc: "All-terrain and mud-terrain tyres, alloys and lift-ready setups." },
-  { icon: Car, title: "Passenger Vehicle Tyres", desc: "Quality tyres for hatchbacks, sedans, SUVs and utes." },
-  { icon: ShieldCheck, title: "Safety & Tread Inspection", desc: "Tread depth, pressure and sidewall checks before long trips." },
-];
 const brands = ["DUNLOP", "MICHELIN", "BRIDGESTONE", "Continental", "GOODYEAR", "PIRELLI", "YOKOHAMA"];
 
 function useStatus() {
@@ -72,12 +54,12 @@ function Index() {
             <source src="/herovideo.mp4" type="video/mp4" />
           </video>
           <div
-            className="absolute inset-0 z-0 bg-gradient-to-r from-zinc-950 via-zinc-950/70 to-transparent"
+            className="absolute inset-0 z-0 bg-gradient-to-r from-[#121316] via-[#121316]/80 to-transparent"
             aria-hidden="true"
           />
           <div className="hazard relative z-10 h-2 w-full" />
           <div className="relative z-10 mx-auto max-w-7xl px-4 pb-28 pt-16 sm:px-6 lg:pt-24">
-            <div className="max-w-3xl">
+            <div className="max-w-2xl text-left lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-sm border border-graphite-line bg-graphite px-3 py-1.5 text-xs font-semibold">
                 <span
                   className={`h-2 w-2 rounded-full ${status?.open ? "bg-success" : "bg-destructive"}`}
@@ -91,23 +73,23 @@ function Index() {
               <p className="mt-5 max-w-xl text-base text-ink-muted sm:text-lg">
                 Premium tyres, precision wheel alignment, and fast fitting in Mount Druitt.
               </p>
-              <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/80 px-4 py-2 text-sm text-white backdrop-blur-md">
-                <BadgePercent className="h-5 w-5 shrink-0 text-primary" />
+              <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-blue-500/30 bg-blue-600 px-4 py-2 text-sm text-white shadow-lg shadow-blue-950/30">
+                <BadgePercent className="h-5 w-5 shrink-0 text-white" />
                 <p className="font-semibold">
-                  We beat local competitor prices by at least 5%.{" "}
-                  <span className="font-normal text-ink-muted">Show us the quote.</span>
+                  Price Match + 5%{" "}
+                  <span className="font-normal text-blue-100">Show us the quote.</span>
                 </p>
               </div>
               <div className="mt-6 flex flex-wrap gap-4">
                 <a
                   href="#services"
-                  className="inline-flex items-center gap-2 rounded-md border-2 border-ink-foreground px-6 py-3.5 font-bold uppercase tracking-wide hover:border-primary hover:text-primary"
+                  className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-[#1E2026]/80 px-8 py-4 text-base font-extrabold uppercase tracking-wider text-white transition-all hover:border-white"
                 >
                   Explore Services <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="#booking"
-                  className="inline-flex items-center gap-2 rounded-md bg-[#FFC700] px-6 py-3.5 font-bold uppercase tracking-wide text-zinc-950 hover:bg-[#ffda4d]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#FFC700] px-8 py-4 text-base font-extrabold uppercase tracking-wider text-[#121316] transition-all hover:scale-105 hover:bg-[#ffda4d]"
                 >
                   Book Appointment <ArrowRight className="h-4 w-4" />
                 </a>
@@ -118,23 +100,7 @@ function Index() {
 
         <QuickTyreFinder />
 
-        {/* Services */}
-        <section id="services" className="py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <p className="text-sm font-bold uppercase tracking-widest text-accent">What we do</p>
-            <h2 className="mt-2 text-4xl font-bold uppercase sm:text-5xl">Workshop services</h2>
-            <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-              {services.map((s) => (
-                <a href="#booking" key={s.title} className="group bg-card p-8 transition-colors hover:bg-ink hover:text-ink-foreground">
-                  <s.icon className="h-10 w-10 text-foreground transition-colors group-hover:text-primary" strokeWidth={1.5} />
-                  <h3 className="mt-6 text-2xl font-semibold uppercase">{s.title}</h3>
-                  <p className="mt-2 text-muted-foreground group-hover:text-ink-muted">{s.desc}</p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-bold uppercase text-accent group-hover:text-primary">Book this <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ServicesSection />
 
         {/* Brands */}
         <section id="brands" className="border-y border-graphite-line bg-graphite py-12 text-ink-foreground">

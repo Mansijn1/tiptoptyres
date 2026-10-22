@@ -61,7 +61,7 @@ function Select({
         disabled={disabled}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-12 w-full rounded-md border border-zinc-600 bg-zinc-900 px-3 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700] disabled:cursor-not-allowed disabled:opacity-50"
+        className="h-12 w-full rounded-md border border-[#2E323D] bg-[#121316] px-3 text-sm font-medium text-white focus:border-[#FFC700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700] disabled:cursor-not-allowed disabled:opacity-50"
       >
         <option value="">Select {label.toLowerCase()}</option>
         {options.map((option) => (
@@ -123,11 +123,11 @@ export function QuickTyreFinder() {
   return (
     <section
       id="quick-tyre-finder"
-      className="relative z-20 -mt-16 bg-zinc-900 pb-14 pt-8 text-white"
+      className="relative z-20 -mt-16 bg-[#121316] pb-14 pt-8 text-white"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="overflow-hidden rounded-xl border border-zinc-700 bg-zinc-950 shadow-2xl">
-          <div className="border-b border-zinc-700 px-5 py-5 sm:px-7">
+        <div className="overflow-hidden rounded-xl border border-[#2E323D] bg-[#1E2026] shadow-2xl shadow-black/30">
+          <div className="border-b border-[#2E323D] px-5 py-5 sm:px-7">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFC700]">
               Quick Tyre Finder
             </p>
@@ -137,7 +137,7 @@ export function QuickTyreFinder() {
           </div>
 
           <div
-            className="grid grid-cols-3 border-b border-zinc-700 bg-zinc-900"
+            className="grid grid-cols-3 gap-2 border-b border-[#2E323D] bg-[#121316] p-2"
             role="group"
             aria-label="Choose how to find tyres"
           >
@@ -154,8 +154,8 @@ export function QuickTyreFinder() {
                   }}
                   className={`flex min-h-14 items-center justify-center gap-2 px-2 py-3 text-xs font-bold tracking-wide transition-colors focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFC700] sm:text-sm ${
                     active
-                      ? "bg-white text-zinc-950"
-                      : "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                      ? "rounded-md bg-[#FFC700] text-[#121316]"
+                      : "rounded-md bg-[#1E2026] text-[#9CA3AF] hover:text-white"
                   }`}
                 >
                   <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -227,7 +227,7 @@ export function QuickTyreFinder() {
                     maxLength={9}
                     autoComplete="off"
                     placeholder="ABC 123"
-                    className="h-12 w-full rounded-md border border-zinc-600 bg-zinc-900 px-3 font-display text-lg uppercase tracking-[0.2em] text-white placeholder:text-zinc-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700]"
+                    className="h-12 w-full rounded-md border border-[#2E323D] bg-[#121316] px-3 font-display text-lg uppercase tracking-[0.2em] text-white placeholder:text-zinc-500 focus:border-[#FFC700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC700]"
                   />
                 </label>
               </div>
@@ -236,7 +236,7 @@ export function QuickTyreFinder() {
             <button
               type="submit"
               disabled={!ready}
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#FFC700] px-5 font-bold uppercase tracking-wider text-zinc-950 transition-colors hover:bg-[#ffda4d] disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-md bg-[#FFC700] px-5 py-4 text-lg font-bold uppercase tracking-wider text-[#121316] transition-colors hover:bg-[#ffda4d] disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Search className="h-5 w-5" aria-hidden="true" />
               Find My Tyres

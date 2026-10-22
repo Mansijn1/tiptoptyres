@@ -14,7 +14,7 @@ export function Header() {
           />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
-          <a href="/#finder" className="text-ink-muted hover:text-primary">Find Tyres</a>
+          <a href="/#quick-tyre-finder" className="text-ink-muted hover:text-primary">Find Tyres</a>
           <a href="/#services" className="text-ink-muted hover:text-primary">Services</a>
           <a href="/#brands" className="text-ink-muted hover:text-primary">Brands</a>
           <a href="/#location" className="text-ink-muted hover:text-primary">Location</a>
