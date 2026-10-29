@@ -44,11 +44,11 @@ export function openStatus(now: Date) {
   if (today && t >= today[0] && t < today[1]) {
     return { open: true, label: `Open today until ${fmtHour(today[1])}`, day };
   }
-  if (today && t < today[0]) return { open: false, label: `Closed. Opens today at ${fmtHour(today[0])}`, day };
+  if (today && t < today[0]) return { open: false, label: `Today at ${fmtHour(today[0])}`, day };
   for (let i = 1; i <= 7; i++) {
     const d = (day + i) % 7;
     const next = HOURS[d];
-    if (next) return { open: false, label: `Closed. Opens ${DAY_NAMES[d]} at ${fmtHour(next[0])}`, day };
+    if (next) return { open: false, label: `${DAY_NAMES[d]} at ${fmtHour(next[0])}`, day };
   }
   return { open: false, label: "Closed", day };
 }

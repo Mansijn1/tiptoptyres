@@ -1,0 +1,103 @@
+{
+  "planHash": "4834a5624a21c60683f9d04c0afe20f083a81f7b5d72a1dc2f8e8f24e2c54097",
+  "phase": "baseline",
+  "recordedAtUtc": "2026-10-29T08:37:14.3876799Z",
+  "retryCount": 0,
+  "resetBaseline": true,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 0,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "production-build",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E build\r\n\u003E vite build\r\n\r\n\u001B[36mvite v8.1.5 \u001B[32mbuilding client environment for production...\u001B[36m\u001B[39m\r\n\u001B[2K\r\ntransforming...\u2713 1909 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\n.output/public/assets/styles-C8ntpc0c.css           86.97 kB \u2502 gzip:  15.11 kB\r\n.output/public/assets/shipping-policy-CIYyNR3x.js    0.63 kB \u2502 gzip:   0.37 kB\r\n.output/public/assets/refund-policy-zB2XFxdX.js      0.76 kB \u2502 gzip:   0.41 kB\r\n.output/public/assets/privacy-policy-B0YQ91w8.js     0.83 kB \u2502 gzip:   0.45 kB\r\n.output/public/assets/terms-BV6QZnu5.js              0.85 kB \u2502 gzip:   0.47 kB\r\n.output/public/assets/Chrome-Bpgn25wc.js            10.44 kB \u2502 gzip:   3.61 kB\r\n.output/public/assets/routes-CRsfxd7a.js            28.12 kB \u2502 gzip:   8.48 kB\r\n.output/public/assets/index-BVuOHvd_.js            341.96 kB \u2502 gzip: 109.15 kB\r\n\r\n\u001B[33m\u001B[33m[PLUGIN_TIMINGS] \u001B[0mYour build spent significant time in plugins. Here is a breakdown:\r\n  - tanstack-start-core:import-protection (72%)\r\n  - tanstack-start-core:import-protection-transform-cache (28%)\r\nSee https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.\r\n\u001B[39m\r\n\u001B[32m\u2713 built in 17.74s\u001B[39m\r\n\u001B[36mvite v8.1.5 \u001B[32mbuilding ssr environment for production...\u001B[36m\u001B[39m\r\n\u001B[2K\r\ntransforming...\u2713 70 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\n\u001B[33m\u001B[33m[PLUGIN_TIMINGS] \u001B[0mYour build spent significant time in plugins. Here is a breakdown:\r\n  - tanstack-start-core:import-protection (37%)\r\n  - tanstack-start-core:import-protection-transform-cache (26%)\r\n  - @tailwindcss/vite:generate:build (9%)\r\n  - tanstack-start-core::server-fn:ssr (9%)\r\n  - tanstack-router:code-splitter:compile-reference-file (6%)\r\nSee https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.\r\n\u001B[39m\r\nnode_modules/.nitro/vite/services/ssr/assets/styles-C8ntpc0c.css                     86.97 kB \u2502 gzip: 15.11 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/empty-plugin-adapters-D9UWiqvJ.js        0.22 kB \u2502 gzip:  0.16 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/shipping-policy-BFccQgeR.js              0.86 kB \u2502 gzip:  0.46 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/refund-policy-DDePwDdt.js                1.03 kB \u2502 gzip:  0.50 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/privacy-policy-B6yF4kYF.js               1.10 kB \u2502 gzip:  0.54 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/terms-CIKP43eU.js                        1.11 kB \u2502 gzip:  0.55 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/start-DsV1xCQf.js                        1.14 kB \u2502 gzip:  0.51 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DgDYzfMZ.js   1.61 kB \u2502 gzip:  0.46 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/createCsrfMiddleware-B2To0gPJ.js         3.19 kB \u2502 gzip:  1.01 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/router-BcpzK4Z1.js                       9.07 kB \u2502 gzip:  2.25 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/Chrome-DJPnONLW.js                      11.59 kB \u2502 gzip:  3.09 kB\r\nnode_modules/.nitro/vite/services/ssr/assets/routes-CZQOcNwK.js                      36.99 kB \u2502 gzip:  9.06 kB\r\nnode_modules/.nitro/vite/services/ssr/index.js                                       66.38 kB \u2502 gzip: 16.96 kB\r\n\r\n\u001B[32m\u2713 built in 5.02s\u001B[39m\r\n\r\n\u001B[90m[\u001B[90mnitro\u001B[90m]\u001B[39m \u001B[35mo\u001B[39m Building [\u001B[35mNitro\u001B[39m] \u001B[2m(preset: \u001B[36mnode-server\u001B[39m, compatibility: \u001B[36m2026-10-29\u001B[39m)\u001B[22m\r\n\u001B[90m[\u001B[90mnitro\u001B[90m]\u001B[39m \u001B[32m\u221A\u001B[39m Generated public \u001B[36m.output/public\u001B[39m\r\n\u001B[36mvite v8.1.5 \u001B[32mbuilding nitro environment for production...\u001B[36m\u001B[39m\r\n\u001B[2K\r\ntransforming...\u2713 1953 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\n.output/server/_ssr/empty-plugin-adapters-D9UWiqvJ.mjs    0.23 kB \u2502 gzip:   0.16 kB\r\n.output/server/_chunks/ssr-renderer.mjs                   0.60 kB \u2502 gzip:   0.36 kB\r\n.output/server/_ssr/start-DsV1xCQf.mjs                    1.10 kB \u2502 gzip:   0.50 kB\r\n.output/server/_ssr/shipping-policy-BFccQgeR.mjs          1.12 kB \u2502 gzip:   0.52 kB\r\n.output/server/_runtime.mjs                               1.\n\u2026[truncated]",
+        "durationMs": 88326
+      },
+      {
+        "name": "home-route-responds",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n\u003C!DOCTYPE html\u003E\u003Chtml lang=\u0022en\u0022\u003E\u003Chead\u003E\u003Cmeta charSet=\u0022utf-8\u0022/\u003E\u003Cmeta name=\u0022viewport\u0022 content=\u0022width=device-width, initial-scale=1\u0022/\u003E\u003Clink rel=\u0022preload\u0022 as=\u0022image\u0022 href=\u0022/tiptop-tyres-logo.png\u0022/\u003E\u003Clink rel=\u0022stylesheet\u0022 href=\u0022https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700\u0026amp;family=Oswald:wght@500;600;700\u0026amp;display=swap\u0022 data-precedence=\u0022default\u0022/\u003E\u003Clink rel=\u0022stylesheet\u0022 href=\u0022/src/styles.css\u0022 data-precedence=\u0022default\u0022/\u003E\u003Clink rel=\u0022stylesheet\u0022 href=\u0022/@tanstack-start/styles.css?routes=__root__%2C%2F\u0022 data-tanstack-router-dev-styles=\u0022true\u0022 data-precedence=\u0022default\u0022/\u003E\u003Ctitle\u003ETiptop Tyres \u0026amp; Wheels | Tyre Fitting \u0026amp; Wheel Alignment Mount Druitt\u003C/title\u003E\u003Cmeta name=\u0022description\u0022 content=\u0022Premium tyres, laser wheel alignment and instant fitting in Mount Druitt, NSW. We beat any local competitor price by at least 5%.\u0022/\u003E\u003Cmeta property=\u0022og:title\u0022 content=\u0022Tiptop Tyres \u0026amp; Wheels, Mount Druitt\u0022/\u003E\u003Cmeta property=\u0022og:description\u0022 content=\u0022Tyre fitting, balancing, wheel alignment and repairs. Book online in 60 seconds.\u0022/\u003E\u003Cmeta property=\u0022og:type\u0022 content=\u0022website\u0022/\u003E\u003Cmeta name=\u0022twitter:card\u0022 content=\u0022summary_large_image\u0022/\u003E\u003Clink rel=\u0022modulepreload\u0022 href=\u0022/@id/virtual:tanstack-start-dev-client-entry\u0022/\u003E\u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.googleapis.com\u0022/\u003E\u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.gstatic.com\u0022 crossorigin=\u0022anonymous\u0022/\u003E\u003Clink rel=\u0022icon\u0022 href=\u0022/favicon.ico\u0022 type=\u0022image/x-icon\u0022/\u003E\u003C/head\u003E\u003Cbody\u003E\u003C!--$--\u003E\u003Cheader class=\u0022sticky top-0 z-40 border-b border-graphite-line bg-graphite text-ink-foreground\u0022\u003E\u003Cdiv class=\u0022mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6\u0022\u003E\u003Ca class=\u0022flex items-center gap-2 active\u0022 href=\u0022/\u0022 data-status=\u0022active\u0022 aria-current=\u0022page\u0022\u003E\u003Cimg src=\u0022/tiptop-tyres-logo.png\u0022 alt=\u0022Tiptop Tyres \u0026amp; Wheels\u0022 class=\u0022h-14 w-auto object-contain\u0022/\u003E\u003C/a\u003E\u003Cnav class=\u0022hidden items-center gap-7 text-sm font-medium md:flex\u0022\u003E\u003Ca href=\u0022/#quick-tyre-finder\u0022 class=\u0022text-ink-muted hover:text-primary\u0022\u003EFind Tyres\u003C/a\u003E\u003Ca href=\u0022/#services\u0022 class=\u0022text-ink-muted hover:text-primary\u0022\u003EServices\u003C/a\u003E\u003Ca href=\u0022/#brands\u0022 class=\u0022text-ink-muted hover:text-primary\u0022\u003EBrands\u003C/a\u003E\u003Ca href=\u0022/#location\u0022 class=\u0022text-ink-muted hover:text-primary\u0022\u003ELocation\u003C/a\u003E\u003C/nav\u003E\u003Cdiv class=\u0022flex items-center gap-3\u0022\u003E\u003Ca href=\u0022tel:\u002B61452661100\u0022 class=\u0022hidden items-center gap-2 text-sm font-semibold lg:flex\u0022\u003E\u003Csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 width=\u002224\u0022 height=\u002224\u0022 viewBox=\u00220 0 24 24\u0022 fill=\u0022none\u0022 stroke=\u0022currentColor\u0022 stroke-width=\u00222\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022 class=\u0022lucide lucide-phone h-4 w-4 text-primary\u0022 aria-hidden=\u0022true\u0022\u003E\u003Cpath d=\u0022M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384\u0022\u003E\u003C/path\u003E\u003C/svg\u003E \u003C!-- --\u003E0452 661 100\u003C/a\u003E\u003Ca href=\u0022/#booking\u0022 class=\u0022rounded-md bg-primary px-4 py-2 text-sm font-bold uppercase tracking-wide text-primary-foreground hover:bg-accent\u0022\u003EBook Now\u003C/a\u003E\u003C/div\u003E\u003C/div\u003E\u003C/header\u003E\u003Cmain\u003E\u003Csection class=\u0022tread relative isolate overflow-hidden bg-ink text-ink-foreground\u0022\u003E\u003Cvideo class=\u0022absolute inset-0 z-0 w-full h-full object-cover opacity-85 brightness-100 transition-opacity duration-300\u0022 autoPlay=\u0022\u0022 loop=\u0022\u0022 muted=\u0022\u0022 playsInline=\u0022\u0022 preload=\u0022metadata\u0022 aria-hidden=\u0022true\u0022\u003E\u003Csource src=\u0022/herovideo.mp4\u0022 type=\u0022video/mp4\u0022/\u003E\u003C/video\u003E\u003Cdiv class=\u0022absolute inset-0 z-0 bg-[#121316]/50 backdrop-brightness-95 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_100%)]\u0022 aria-hidden=\u0022true\u0022\u003E\u003C/div\u003E\u003Cdiv class=\u0022hazard relative z-10 h-2 w-full\u0022\u003E\u003C/div\u003E\u003Cdiv class=\u0022relative z-10 mx-auto max-w-7xl px-4 pb-28 pt-16 sm:px-6 lg:pt-24\u0022\u003E\u003Cdiv class=\u0022mx-auto max-w-3xl text-center\u0022\u003E\u003Cdiv class=\u0022inline-flex items-center gap-2 rounded-sm border border-graphite-line bg-graphite px-3 py-1.5 text-xs font-semibold\u0022\u003E\u003Cspan class=\u0022h-2 w-2 rounded-full bg-destructive\u0022\u003E\u003C/span\u003EChecking hours\u003C/div\u003E\u003Ch1 class=\u0022mt-6 font-sans text-2xl font-black uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl\u0022\u003E\u003Cspan class=\u0022block text-white\u0022\u003EDrive with confidence\n\u2026[truncated]",
+        "durationMs": 49079
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": false,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 1,
+        "outputSample": "\r\n\u003E test\r\n\u003E vitest run\r\n\r\n\r\n RUN  v4.1.11 C:/Users/ASUS/Downloads/tiptop-tyres-wheels/tiptop-tyres-wheels\r\n\r\n \u276F src/test/app-routing.test.tsx (0 test)\r\n\r\n\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF Failed Suites 1 \u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\r\n\r\n FAIL  src/test/app-routing.test.tsx [ src/test/app-routing.test.tsx ]\r\nError: Cannot find package \u0027@testing-library/dom\u0027 imported from C:\\Users\\ASUS\\Downloads\\tiptop-tyres-wheels\\tiptop-tyres-wheels\\node_modules\\@testing-library\\jest-dom\\dist\\matchers-b01dabb1.mjs\r\n\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF\u23AF[1/1]\u23AF\r\n\r\n\r\n Test Files  1 failed (1)\r\n      Tests  no tests\r\n   Start at  14:07:04\r\n   Duration  9.47s (transform 107ms, setup 0ms, import 0ms, tests 0ms, environment 6.82s)\r\n\r\n",
+        "durationMs": 18581,
+        "testResults": {
+          "testFramework": "vitest",
+          "runnerDetectedFrom": "package_json",
+          "testsTotal": 0,
+          "testsPassed": 0,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": true
+        }
+      }
+    ],
+    "executions": [
+      {
+        "source": "production-build",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "C:\\Users\\ASUS\\Downloads\\tiptop-tyres-wheels\\tiptop-tyres-wheels",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "home-route-responds",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "dev",
+          "--",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "4173",
+          "--strictPort"
+        ],
+        "cwd": "C:\\Users\\ASUS\\Downloads\\tiptop-tyres-wheels\\tiptop-tyres-wheels",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "test"
+        ],
+        "cwd": "C:\\Users\\ASUS\\Downloads\\tiptop-tyres-wheels\\tiptop-tyres-wheels",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}
