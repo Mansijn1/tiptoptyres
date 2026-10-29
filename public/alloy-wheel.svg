@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <defs>
+    <radialGradient id="rubber" cx="38%" cy="28%" r="75%">
+      <stop offset="0" stop-color="#4a4b4b"/>
+      <stop offset=".38" stop-color="#1b1d1e"/>
+      <stop offset=".78" stop-color="#050607"/>
+      <stop offset="1" stop-color="#303234"/>
+    </radialGradient>
+    <linearGradient id="sidewall" x1="25" y1="45" x2="267" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#777a7b"/>
+      <stop offset=".16" stop-color="#252829"/>
+      <stop offset=".5" stop-color="#080909"/>
+      <stop offset=".82" stop-color="#343637"/>
+      <stop offset="1" stop-color="#101112"/>
+    </linearGradient>
+    <linearGradient id="alloy" x1="80" y1="64" x2="220" y2="238" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset=".2" stop-color="#a8afb4"/>
+      <stop offset=".38" stop-color="#e7e9e9"/>
+      <stop offset=".58" stop-color="#62696d"/>
+      <stop offset=".74" stop-color="#d8dcdd"/>
+      <stop offset="1" stop-color="#858b8e"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="32%" cy="25%" r="80%">
+      <stop stop-color="#687176"/>
+      <stop offset=".58" stop-color="#202529"/>
+      <stop offset="1" stop-color="#080a0b"/>
+    </radialGradient>
+    <pattern id="tread" width="12" height="12" patternTransform="rotate(32)" patternUnits="userSpaceOnUse">
+      <path d="M1 0v12M7 0v12" stroke="#a2a3a2" stroke-opacity=".22" stroke-width="1.5"/>
+      <path d="M4 0v12M10 0v12" stroke="#000" stroke-opacity=".55" stroke-width="1.2"/>
+    </pattern>
+  </defs>
+  <circle cx="150" cy="150" r="143" fill="#020303"/>
+  <circle cx="150" cy="150" r="138" fill="url(#rubber)" stroke="#737778" stroke-width="2"/>
+  <circle cx="150" cy="150" r="132" stroke="#080909" stroke-width="5"/>
+  <circle cx="150" cy="150" r="127" stroke="url(#tread)" stroke-width="9"/>
+  <circle cx="150" cy="150" r="119" stroke="#050606" stroke-width="5"/>
+  <circle cx="150" cy="150" r="113" fill="#080a0b" stroke="url(#sidewall)" stroke-width="7"/>
+  <circle cx="150" cy="150" r="104" fill="url(#alloy)" stroke="#e9eded" stroke-width="2"/>
+  <circle cx="150" cy="150" r="97" fill="url(#hub)" stroke="#32383b" stroke-width="2"/>
+  <circle cx="150" cy="150" r="91" stroke="#aab0b2" stroke-opacity=".35" stroke-width="1"/>
+  <g stroke-linejoin="round">
+    <g transform="rotate(0 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(36 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(72 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(108 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(144 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(180 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(216 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(252 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(288 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+    <g transform="rotate(324 150 150)">
+      <path d="m143 145-8-69q15-9 30 0l-8 69-7 12z" fill="url(#alloy)" stroke="#f8fafc" stroke-opacity=".8" stroke-width="2"/>
+      <path d="m150 78-1 67" stroke="#596166" stroke-width="2"/>
+    </g>
+  </g>
+  <circle cx="150" cy="150" r="48" fill="#090c0e" stroke="#d7dcde" stroke-width="5"/>
+  <circle cx="150" cy="150" r="39" fill="url(#hub)" stroke="#737b7f" stroke-width="2"/>
+  <g fill="#d9ddde">
+    <circle cx="150" cy="118" r="3"/>
+    <circle cx="172.6" cy="127.4" r="3"/>
+    <circle cx="182" cy="150" r="3"/>
+    <circle cx="172.6" cy="172.6" r="3"/>
+    <circle cx="150" cy="182" r="3"/>
+    <circle cx="127.4" cy="172.6" r="3"/>
+    <circle cx="118" cy="150" r="3"/>
+    <circle cx="127.4" cy="127.4" r="3"/>
+  </g>
+  <circle cx="150" cy="150" r="18" fill="#111517" stroke="#e4e7e8" stroke-opacity=".8" stroke-width="2"/>
+  <circle cx="150" cy="150" r="7" fill="#9ea5a8"/>
+  <path d="M70 87a102 102 0 0 1 77-39" stroke="#fff" stroke-linecap="round" stroke-opacity=".24" stroke-width="3"/>
+  <path d="M230 212a102 102 0 0 1-66 39" stroke="#fff" stroke-linecap="round" stroke-opacity=".16" stroke-width="2"/>
+</svg>

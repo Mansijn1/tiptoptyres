@@ -5,7 +5,7 @@ import { BUSINESS } from "@/lib/business";
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-graphite-line bg-graphite text-ink-foreground">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex min-h-16 max-w-7xl flex-wrap items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2">
           <img
             src="/tiptop-tyres-logo.png"
@@ -13,7 +13,7 @@ export function Header() {
             className="h-14 w-auto object-contain"
           />
         </Link>
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
+        <nav className="hidden items-center gap-4 text-sm font-medium lg:gap-7 md:flex">
           <a href="/#quick-tyre-finder" className="text-ink-muted hover:text-primary">
             Find Tyres
           </a>
@@ -41,6 +41,35 @@ export function Header() {
             Book Now
           </a>
         </div>
+        <nav
+          aria-label="Main navigation"
+          className="flex w-full items-center justify-between gap-3 overflow-x-auto border-t border-white/10 py-1 text-xs font-semibold md:hidden"
+        >
+          <a
+            href="/#quick-tyre-finder"
+            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+          >
+            Find Tyres
+          </a>
+          <a
+            href="/#services"
+            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+          >
+            Services
+          </a>
+          <a
+            href="/#brands"
+            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+          >
+            Brands
+          </a>
+          <a
+            href="/#location"
+            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+          >
+            Location
+          </a>
+        </nav>
       </div>
     </header>
   );
@@ -64,23 +93,23 @@ export function Footer() {
             <a
               aria-label="Facebook"
               href="https://facebook.com"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition-colors hover:border-primary hover:text-primary"
             >
-              <Facebook className="h-4 w-4" aria-hidden="true" /> Facebook
+              <Facebook className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
               aria-label="Instagram"
               href="https://instagram.com"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition-colors hover:border-primary hover:text-primary"
             >
-              <Instagram className="h-4 w-4" aria-hidden="true" /> Instagram
+              <Instagram className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
               aria-label="TikTok"
               href="https://www.tiktok.com"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-semibold text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 transition-colors hover:border-primary hover:text-primary"
             >
-              <Music2 className="h-4 w-4" aria-hidden="true" /> TikTok
+              <Music2 className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -155,6 +184,9 @@ export function Footer() {
           <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
           Open 6 days a week in Mount Druitt
         </span>
+        <p className="self-end text-right font-medium text-zinc-500 md:ml-auto">
+          Powered by <span className="font-semibold text-zinc-300">JobGen.AI</span>
+        </p>
       </div>
     </footer>
   );
@@ -165,7 +197,7 @@ export function MobileBar() {
     <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-graphite-line bg-graphite md:hidden">
       <a
         href={BUSINESS.phoneHref}
-        className="flex items-center justify-center gap-2 bg-primary py-4 font-bold uppercase text-primary-foreground"
+        className="flex min-h-12 items-center justify-center gap-2 bg-primary px-2 py-3 text-[clamp(0.7rem,3.8vw,0.875rem)] font-bold uppercase text-primary-foreground"
       >
         <Phone className="h-5 w-5" /> Call Now
       </a>
@@ -173,7 +205,7 @@ export function MobileBar() {
         href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.mapsQuery}`}
         target="_blank"
         rel="noreferrer"
-        className="flex items-center justify-center gap-2 py-4 font-bold uppercase text-ink-foreground"
+        className="flex min-h-12 items-center justify-center gap-2 px-2 py-3 text-[clamp(0.7rem,3.8vw,0.875rem)] font-bold uppercase text-ink-foreground"
       >
         <MapPin className="h-5 w-5 text-primary" /> Get Directions
       </a>

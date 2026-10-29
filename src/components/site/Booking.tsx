@@ -26,14 +26,40 @@ const STEPS = ["Service", "Date & Time", "Vehicle", "Confirmed"];
 const SERVICE_OPTIONS = [
   {
     label: SERVICES[0],
+    category: "Alignment",
     detail: "Precision steering & suspension setup",
     icon: AlignHorizontalJustifyCenter,
   },
-  { label: SERVICES[1], detail: "Expert fitment, balancing & rotation", icon: Disc3 },
-  { label: SERVICES[2], detail: "Fast puncture checks & repairs", icon: Wrench },
-  { label: SERVICES[3], detail: "Built tough for your next track", icon: Truck },
-  { label: SERVICES[4], detail: "Quality tyres for everyday driving", icon: Car },
-  { label: SERVICES[5], detail: "A closer look at your tyre health", icon: ShieldCheck },
+  {
+    label: SERVICES[1],
+    category: "Fitment",
+    detail: "Expert fitment, balancing & rotation",
+    icon: Disc3,
+  },
+  {
+    label: SERVICES[2],
+    category: "Repairs",
+    detail: "Fast puncture checks & repairs",
+    icon: Wrench,
+  },
+  {
+    label: SERVICES[3],
+    category: "4WD & Off-road",
+    detail: "Built tough for your next track",
+    icon: Truck,
+  },
+  {
+    label: SERVICES[4],
+    category: "Passenger",
+    detail: "Quality tyres for everyday driving",
+    icon: Car,
+  },
+  {
+    label: SERVICES[5],
+    category: "Safety",
+    detail: "A closer look at your tyre health",
+    icon: ShieldCheck,
+  },
 ];
 
 function nextDays(n: number) {
@@ -88,28 +114,24 @@ export function Booking() {
   return (
     <section
       id="booking"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-slate-100 to-white py-16 text-slate-900 sm:py-24"
+      className="relative isolate overflow-hidden bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 py-12 text-slate-900 sm:py-20 lg:py-24"
     >
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.12)_1px,transparent_1px)] bg-[size:4rem_4rem]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40"
         aria-hidden="true"
       />
-      <div
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.2)_0%,rgba(248,250,252,0.9)_75%)]"
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute -left-20 top-4 z-0 h-64 w-64 rounded-full border border-sky-700/10 sm:left-[-5rem] sm:top-8 sm:h-96 sm:w-96">
-        <div className="booking-wire-ring absolute inset-[12%] rounded-full border border-dashed border-sky-700/20" />
-        <div className="booking-wire-ring booking-wire-ring-inner absolute inset-[25%] rounded-full border border-sky-700/15" />
-        <div className="absolute inset-[38%] rounded-full border border-sky-700/15" />
+      <div className="pointer-events-none absolute -left-20 top-4 z-0 h-64 w-64 rounded-full border border-amber-950/10 sm:left-[-5rem] sm:top-8 sm:h-96 sm:w-96">
+        <div className="booking-wire-ring absolute inset-[12%] rounded-full border border-dashed border-amber-950/15" />
+        <div className="booking-wire-ring booking-wire-ring-inner absolute inset-[25%] rounded-full border border-amber-950/10" />
+        <div className="absolute inset-[38%] rounded-full border border-amber-950/10" />
       </div>
-      <div className="pointer-events-none absolute -right-20 top-0 z-0 h-64 w-64 rounded-full border border-amber-700/10 sm:right-[-5rem] sm:top-4 sm:h-96 sm:w-96">
-        <div className="booking-speed-ring absolute inset-[12%] rounded-full border-[3px] border-transparent border-t-amber-600/30 border-r-amber-600/10" />
-        <div className="absolute inset-[25%] rounded-full border border-dashed border-amber-700/15" />
-        <Gauge className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-amber-700/20" />
+      <div className="pointer-events-none absolute -right-20 top-0 z-0 h-64 w-64 rounded-full border border-amber-950/10 sm:right-[-5rem] sm:top-4 sm:h-96 sm:w-96">
+        <div className="booking-speed-ring absolute inset-[12%] rounded-full border-[3px] border-transparent border-t-amber-950/20 border-r-amber-950/10" />
+        <div className="absolute inset-[25%] rounded-full border border-dashed border-amber-950/10" />
+        <Gauge className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-amber-950/15" />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 p-5 text-slate-900 shadow-2xl shadow-slate-300/50 backdrop-blur-xl sm:p-8 lg:p-10">
+        <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-white p-5 text-slate-900 shadow-2xl shadow-amber-950/20 sm:p-8 lg:p-10">
           <div
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(56,189,248,0.07),_transparent_55%)]"
             aria-hidden="true"
@@ -166,13 +188,13 @@ export function Booking() {
           <div className="relative z-10 mt-6 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl sm:p-6">
             {step === 0 && (
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {SERVICE_OPTIONS.map(({ label: item, detail, icon: Icon }) => (
+                {SERVICE_OPTIONS.map(({ label: item, category, detail, icon: Icon }) => (
                   <button
                     key={item}
                     type="button"
                     onClick={() => setService(item)}
                     aria-pressed={service === item}
-                    className={`group relative flex min-h-[116px] items-center gap-3 overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 hover:-translate-y-1 ${
+                    className={`booking-service-card group relative flex min-h-[116px] items-center gap-3 overflow-hidden rounded-2xl border bg-white p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:scale-[1.015] ${
                       service === item
                         ? "booking-service-selected border-sky-500 bg-white text-slate-900 shadow-[inset_0_0_24px_rgba(56,189,248,0.08),0_0_20px_rgba(56,189,248,0.12)]"
                         : "border-slate-200 bg-white text-slate-800 hover:border-red-500/50 hover:shadow-xl"
@@ -182,7 +204,7 @@ export function Booking() {
                       <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(56,189,248,0.13),_transparent_55%)]" />
                     )}
                     <span
-                      className={`relative grid h-11 w-11 shrink-0 place-items-center rounded-xl border transition-colors ${
+                      className={`relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-xl border transition-colors ${
                         service === item
                           ? "border-sky-300/60 bg-sky-50 text-sky-700"
                           : "border-slate-200 bg-slate-50 text-slate-500 group-hover:text-sky-700"
@@ -190,14 +212,17 @@ export function Booking() {
                     >
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
-                    <span className="relative min-w-0 flex-1">
+                    <span className="relative z-10 min-w-0 flex-1">
+                      <span className="mb-1 inline-flex rounded-full border border-amber-500/30 bg-amber-50 px-2 py-0.5 text-[8px] font-extrabold uppercase tracking-[0.13em] text-amber-800">
+                        {category}
+                      </span>
                       <span className="block text-xs font-bold leading-5 sm:text-sm">{item}</span>
                       <span className="mt-1 block text-[10px] leading-4 text-slate-500 sm:text-xs">
                         {detail}
                       </span>
                     </span>
                     {service === item && (
-                      <span className="relative flex h-8 w-8 shrink-0 items-center justify-center">
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center">
                         <span className="booking-wheel-preview absolute inset-0 rounded-full border border-sky-500/60" />
                         <Disc3 className="h-5 w-5 text-sky-700" aria-hidden="true" />
                       </span>

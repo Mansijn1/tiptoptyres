@@ -107,27 +107,6 @@
   }
 }
 
-.scanner-hud-ring {
-  animation: scanner-ring 28s linear infinite;
-}
-
-.scanner-hud-ring-inner {
-  animation-direction: reverse;
-  animation-duration: 18s;
-}
-
-.scanner-wheel {
-  animation: scanner-wheel-spin 12s linear infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.scanner-laser {
-  animation: scanner-laser 3.2s ease-in-out infinite alternate;
-}
-
 .scanner-gauge {
   animation: scanner-gauge 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -135,26 +114,6 @@
 @keyframes scanner-ring {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes scanner-wheel-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes scanner-laser {
-  from {
-    top: 7%;
-    opacity: 0.65;
-  }
-  to {
-    top: 93%;
-    opacity: 1;
   }
 }
 
@@ -334,9 +293,6 @@
 @media (prefers-reduced-motion: reduce) {
   .hazard,
   .brand-marquee-track,
-  .scanner-hud-ring,
-  .scanner-wheel,
-  .scanner-laser,
   .scanner-gauge,
   .brand-scan-beam,
   .brand-speed-ring,
@@ -350,5 +306,829 @@
   .services-tire-spin-reverse,
   .services-circuit path {
     animation: none;
+  }
+}
+
+.tyre-finder-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(2.75rem, 6vw, 5.5rem) 1rem;
+  color: #17140b;
+  background:
+    radial-gradient(ellipse at 18% 22%, rgb(255 255 255 / 36%), transparent 32%),
+    radial-gradient(ellipse at 78% 88%, rgb(166 107 0 / 18%), transparent 38%),
+    linear-gradient(125deg, #f8d64a 0%, #f2bf18 48%, #eaaa0a 100%);
+}
+
+.tyre-finder-section::before,
+.tyre-finder-section::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.tyre-finder-section::before {
+  inset: 0;
+  opacity: 0.1;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 25%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 25%) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(115deg, black, transparent 70%);
+}
+
+.tyre-finder-section::after {
+  top: -13rem;
+  left: -12rem;
+  width: 34rem;
+  height: 34rem;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2.5rem rgb(255 255 255 / 5%),
+    0 0 0 5rem rgb(255 255 255 / 4%);
+}
+
+.tyre-finder-layout {
+  display: grid;
+  width: min(100%, 80rem);
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.tyre-finder-intro {
+  display: flex;
+  min-width: 0;
+  min-height: 31rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.tyre-finder-eyebrow,
+.tyre-finder-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.tyre-finder-eyebrow {
+  color: #5d4300;
+}
+
+.tyre-finder-eyebrow span {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #17140b;
+  box-shadow: 0 0 0 4px rgb(23 20 11 / 10%);
+}
+
+.tyre-finder-heading {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.85rem, 4.3vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.tyre-finder-heading span {
+  color: #fff9dc;
+  text-shadow: 0 2px 0 rgb(98 68 0 / 20%);
+}
+
+.tyre-finder-copy {
+  max-width: 26rem;
+  margin: 1rem 0 0;
+  color: #483600;
+  font-size: 0.97rem;
+  line-height: 1.65;
+}
+
+.tyre-finder-wheel {
+  position: relative;
+  display: grid;
+  width: min(100%, 19rem);
+  aspect-ratio: 1;
+  margin: 0.3rem 0 0 -0.4rem;
+  place-items: center;
+}
+
+.tyre-finder-wheel-perspective {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  transform: perspective(760px) rotateY(-16deg) rotateX(5deg);
+  transform-style: preserve-3d;
+}
+
+.tyre-finder-wheel-shadow {
+  position: absolute;
+  right: 7%;
+  bottom: 8%;
+  left: 7%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgb(43 32 4 / 48%) 0%,
+    rgb(43 32 4 / 19%) 42%,
+    transparent 74%
+  );
+  filter: blur(0.7rem);
+}
+
+.tyre-finder-wheel-image {
+  position: relative;
+  z-index: 1;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 1.1rem 1rem rgb(48 34 3 / 34%))
+    drop-shadow(0 0 1.6rem rgb(255 255 255 / 22%));
+  transform-origin: center;
+  animation: tyre-finder-wheel-rotation 18s linear infinite;
+  will-change: transform;
+}
+
+.tyre-finder-caption {
+  margin-top: 0;
+  color: #5d4300;
+  font-size: 0.62rem;
+}
+
+.tyre-finder-panel {
+  min-width: 0;
+  padding: clamp(1.35rem, 3.2vw, 2.6rem);
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 1.5rem;
+  color: #f9f8f2;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgb(241 183 20 / 9%), transparent 37%),
+    linear-gradient(145deg, #202123 0%, #111214 58%, #171719 100%);
+  box-shadow:
+    0 2rem 4rem rgb(71 49 1 / 28%),
+    0 0 0 1px rgb(39 34 19 / 20%),
+    inset 0 1px 0 rgb(255 255 255 / 8%);
+}
+
+.tyre-finder-panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tyre-finder-kicker {
+  margin: 0;
+  color: #e6bd36;
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tyre-finder-panel-heading h3 {
+  margin: 0.45rem 0 0;
+  color: #fff;
+  font-size: clamp(1.75rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.tyre-finder-panel-copy {
+  margin: 0.65rem 0 0;
+  color: #a4a4a1;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.tyre-finder-heading-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  flex: 0 0 auto;
+  margin-top: 0.3rem;
+  color: #e8bf32;
+  filter: drop-shadow(0 0 0.65rem rgb(237 190 44 / 40%));
+}
+
+.tyre-finder-tabs {
+  display: grid;
+  margin-top: 1.65rem;
+  padding: 0.3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
+  border: 1px solid #343435;
+  border-radius: 0.85rem;
+  background: #101011;
+}
+
+.tyre-finder-tab {
+  display: flex;
+  min-width: 0;
+  min-height: 3.45rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
+  color: #a7a7a4;
+  background: transparent;
+  font-size: clamp(0.63rem, 1vw, 0.75rem);
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+  cursor: pointer;
+}
+
+.tyre-finder-tab svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+.tyre-finder-tab:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 5%);
+}
+
+.tyre-finder-tab.is-active {
+  border-color: #e9bd2d;
+  color: #ffda56;
+  background: linear-gradient(145deg, rgb(240 195 52 / 14%), rgb(240 195 52 / 5%));
+  box-shadow:
+    inset 0 0 1rem rgb(237 190 44 / 9%),
+    0 0 1rem rgb(237 190 44 / 14%);
+}
+
+.tyre-finder-tab:focus-visible,
+.tyre-finder-submit:focus-visible,
+.tyre-finder-control:focus-visible {
+  outline: 2px solid #ffdc61;
+  outline-offset: 3px;
+}
+
+.tyre-finder-form {
+  display: grid;
+  padding-top: 1.5rem;
+  gap: 1.4rem;
+}
+
+.tyre-finder-fields {
+  display: grid;
+  min-width: 0;
+  gap: 0.9rem;
+}
+
+.tyre-finder-fields-size,
+.tyre-finder-fields-vehicle {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tyre-finder-fields-rego {
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+}
+
+.tyre-finder-field {
+  display: block;
+  min-width: 0;
+}
+
+.tyre-finder-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #c3c2bd;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tyre-finder-control {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 3.2rem;
+  padding: 0.75rem 2rem 0.75rem 0.85rem;
+  border: 1px solid #444447;
+  border-radius: 0.6rem;
+  color: #f8f7f2;
+  background-color: #171719;
+  font: inherit;
+  font-size: 0.87rem;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.tyre-finder-control:hover:not(:disabled) {
+  border-color: #77705b;
+}
+
+.tyre-finder-control:focus {
+  border-color: #e9bd2d;
+  outline: none;
+  background-color: #1d1c19;
+  box-shadow: 0 0 0 3px rgb(233 189 45 / 12%);
+}
+
+.tyre-finder-control:disabled {
+  color: #777;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.tyre-finder-control option {
+  color: #f8f7f2;
+  background: #171719;
+}
+
+.tyre-finder-plate {
+  padding-right: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tyre-finder-plate::placeholder {
+  color: #77766f;
+  opacity: 1;
+}
+
+.tyre-finder-note,
+.tyre-finder-disclaimer {
+  margin: -0.5rem 0 0;
+  color: #aaa9a1;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.tyre-finder-submit {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #ffe57e;
+  border-radius: 0.65rem;
+  color: #17140b;
+  background: linear-gradient(100deg, #f5cd43 0%, #f8d957 50%, #ecc02c 100%);
+  box-shadow:
+    0 0.65rem 1.5rem rgb(237 190 44 / 18%),
+    inset 0 1px 0 rgb(255 255 255 / 44%);
+  font-size: 0.84rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    filter 180ms ease;
+  cursor: pointer;
+}
+
+.tyre-finder-submit svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.tyre-finder-submit:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.08);
+  box-shadow:
+    0 0.75rem 1.8rem rgb(237 190 44 / 30%),
+    0 0 1.4rem rgb(237 190 44 / 18%),
+    inset 0 1px 0 rgb(255 255 255 / 50%);
+}
+
+.tyre-finder-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: -0.55rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.tyre-finder-feedback svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+}
+
+.tyre-finder-feedback.is-error {
+  color: #ffb4a9;
+}
+
+.tyre-finder-feedback.is-success {
+  color: #d3d0c4;
+}
+
+.tyre-finder-feedback.is-success svg {
+  color: #dfc04a;
+}
+
+.tyre-finder-disclaimer {
+  margin: 1.15rem 0 0;
+  color: #85847d;
+  text-align: center;
+}
+
+@keyframes tyre-finder-wheel-rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .tyre-finder-section {
+    padding-block: 3.5rem;
+  }
+
+  .tyre-finder-layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 1.75rem;
+  }
+
+  .tyre-finder-intro {
+    min-height: 28rem;
+  }
+
+  .tyre-finder-heading {
+    font-size: clamp(2.2rem, 5vw, 3.3rem);
+  }
+
+  .tyre-finder-wheel {
+    width: min(100%, 15rem);
+  }
+
+  .tyre-finder-panel {
+    padding: 1.5rem;
+  }
+
+  .tyre-finder-fields-size,
+  .tyre-finder-fields-vehicle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .tyre-finder-section {
+    padding: 2.75rem 1rem;
+  }
+
+  .tyre-finder-layout {
+    max-width: 38rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .tyre-finder-intro {
+    min-height: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tyre-finder-heading {
+    font-size: clamp(2.65rem, 10.5vw, 3.65rem);
+  }
+
+  .tyre-finder-copy {
+    max-width: 25rem;
+    margin-top: 0.8rem;
+  }
+
+  .tyre-finder-wheel {
+    width: min(70vw, 17rem);
+    margin: -0.15rem 0 -0.4rem;
+  }
+
+  .tyre-finder-caption {
+    margin-top: 0;
+  }
+
+  .tyre-finder-panel {
+    padding: clamp(1.15rem, 5vw, 1.6rem);
+    border-radius: 1.15rem;
+  }
+
+  .tyre-finder-fields-size,
+  .tyre-finder-fields-vehicle {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tyre-finder-fields-rego {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+@media (max-width: 390px) {
+  .tyre-finder-tabs {
+    gap: 0.15rem;
+    padding: 0.22rem;
+  }
+
+  .tyre-finder-tab {
+    min-height: 3.25rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-inline: 0.15rem;
+    font-size: 0.59rem;
+  }
+
+  .tyre-finder-tab svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .tyre-finder-fields-rego {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tyre-finder-wheel-image {
+    animation: none;
+  }
+
+  .tyre-finder-tab,
+  .tyre-finder-control,
+  .tyre-finder-submit {
+    transition: none;
+  }
+}
+
+.brand-marquee {
+  padding-block: 1.25rem 1rem;
+  scroll-snap-type: x proximity;
+}
+
+.brand-marquee-track {
+  --brand-arc-top: -14px;
+  --brand-arc-90: -13px;
+  --brand-arc-80: -11px;
+  --brand-arc-70: -8px;
+  --brand-arc-60: -4px;
+  --brand-card-width: clamp(14rem, 21vw, 17.5rem);
+  --brand-half-card-width: clamp(7rem, 10.5vw, 8.75rem);
+  --brand-card-gap: 1rem;
+  margin-left: calc(
+    50% - var(--brand-card-width) - var(--brand-card-width) - var(--brand-half-card-width) -
+      var(--brand-card-gap) - var(--brand-card-gap)
+  );
+}
+
+.brand-marquee-group {
+  gap: var(--brand-card-gap);
+  padding-right: var(--brand-card-gap);
+}
+
+.brand-marquee-card-arc {
+  flex: 0 0 auto;
+  animation: brand-marquee-arc 30s linear infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.brand-marquee:hover .brand-marquee-card-arc,
+.brand-marquee:focus-within .brand-marquee-card-arc {
+  animation-play-state: paused;
+}
+
+.brand-marquee-group .brand-marquee-card-arc:nth-child(1) {
+  animation-delay: -18s;
+}
+
+.brand-marquee-group .brand-marquee-card-arc:nth-child(2) {
+  animation-delay: -24s;
+}
+
+.brand-marquee-group .brand-marquee-card-arc:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.brand-marquee-group .brand-marquee-card-arc:nth-child(4) {
+  animation-delay: -6s;
+}
+
+.brand-marquee-group .brand-marquee-card-arc:nth-child(5) {
+  animation-delay: -12s;
+}
+
+.brand-marquee-card {
+  width: var(--brand-card-width);
+  height: clamp(18rem, 24vw, 20rem);
+  transform: perspective(900px) rotateX(0) rotateY(0) scale(1);
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition:
+    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+  scroll-snap-align: center;
+}
+
+.brand-marquee-card:hover,
+.brand-marquee-card:focus-within {
+  z-index: 2;
+  transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035) translateY(-0.25rem);
+  border-color: #fbbf24;
+  box-shadow:
+    0 1.25rem 2rem rgb(0 0 0 / 24%),
+    0 0 1.25rem rgb(245 158 11 / 22%);
+}
+
+.brand-marquee-card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 18%, rgb(255 255 255 / 54%) 45%, transparent 68%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-120%);
+  transition:
+    transform 700ms ease,
+    opacity 220ms ease;
+}
+
+.brand-marquee-card:hover::after,
+.brand-marquee-card:focus-within::after {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.booking-service-card,
+.services-section-card {
+  isolation: isolate;
+}
+
+.booking-service-card::after,
+.services-section-card::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 15%, rgb(255 255 255 / 72%) 46%, transparent 68%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-125%) skewX(-12deg);
+  transition:
+    transform 700ms ease,
+    opacity 220ms ease;
+}
+
+.booking-service-card:hover::after,
+.services-section-card:hover::after {
+  opacity: 1;
+  transform: translateX(125%) skewX(-12deg);
+}
+
+@keyframes brand-marquee-arc {
+  0%,
+  100% {
+    transform: translateY(var(--brand-arc-top)) scale(1.025);
+  }
+  10%,
+  90% {
+    transform: translateY(var(--brand-arc-90)) scale(1.02);
+  }
+  20%,
+  80% {
+    transform: translateY(var(--brand-arc-80)) scale(1.01);
+  }
+  30%,
+  70% {
+    transform: translateY(var(--brand-arc-70)) scale(1);
+  }
+  40%,
+  60% {
+    transform: translateY(var(--brand-arc-60)) scale(0.99);
+  }
+  50% {
+    transform: translateY(0) scale(0.985);
+  }
+}
+
+@media (max-width: 900px) {
+  .brand-marquee-track {
+    --brand-arc-top: -10px;
+    --brand-arc-90: -9px;
+    --brand-arc-80: -8px;
+    --brand-arc-70: -6px;
+    --brand-arc-60: -3px;
+    --brand-card-width: clamp(13.5rem, 27vw, 16.5rem);
+    --brand-half-card-width: clamp(6.75rem, 13.5vw, 8.25rem);
+  }
+
+  .brand-marquee-card {
+    height: clamp(17.5rem, 34vw, 19rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-marquee-track {
+    --brand-arc-top: -6px;
+    --brand-arc-90: -5px;
+    --brand-arc-80: -4px;
+    --brand-arc-70: -3px;
+    --brand-arc-60: -1px;
+    --brand-card-width: clamp(13rem, 70vw, 15rem);
+    --brand-half-card-width: clamp(6.5rem, 35vw, 7.5rem);
+    --brand-card-gap: 0.75rem;
+  }
+
+  .brand-marquee-card {
+    height: 18rem;
+  }
+}
+
+@layer base {
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    min-width: 320px;
+    overflow-wrap: anywhere;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee {
+    overflow-x: auto;
+    mask-image: none;
+    scroll-behavior: auto;
+  }
+
+  .brand-marquee-track {
+    margin-left: 0;
+  }
+
+  .brand-marquee-card-arc {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .brand-marquee-card {
+    transform: none;
+    transition: none;
+  }
+
+  .brand-marquee-card:hover,
+  .brand-marquee-card:focus-within {
+    transform: none;
+  }
+
+  .brand-marquee-card::after,
+  .booking-service-card::after,
+  .services-section-card::after {
+    display: none;
+  }
+
+  .booking-service-card,
+  .services-section-card {
+    transition: none;
   }
 }
