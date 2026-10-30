@@ -47,9 +47,10 @@ function Index() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="tread relative isolate overflow-hidden bg-ink text-ink-foreground">
+        <div className="hazard h-10 w-full" aria-hidden="true" />
+        <section className="relative flex h-[calc(100vh-40px)] w-full flex-col items-center justify-center overflow-hidden text-ink-foreground">
           <video
-            className="absolute inset-0 z-0 w-full h-full object-cover opacity-85 brightness-100 transition-opacity duration-300"
+            className="absolute inset-0 z-0 h-full w-full object-cover"
             autoPlay
             loop
             muted
@@ -59,13 +60,7 @@ function Index() {
           >
             <source src="/herovideo.mp4" type="video/mp4" />
           </video>
-          <div
-            className="absolute inset-0 z-0 bg-[#121316]/50 backdrop-brightness-95 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_100%)]"
-            aria-hidden="true"
-          />
-          <div className="hazard relative z-10 h-2 w-full" />
-          <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 sm:pb-28 sm:pt-16 lg:pt-24">
-            <div className="mx-auto max-w-3xl text-center">
+          <div className="relative z-20 mx-auto max-w-4xl px-4 text-center">
               <h1 className="mt-0 font-sans text-[clamp(1.65rem,6vw,2.25rem)] font-black uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
                 <span className="block text-white">Drive with confidence.</span>
                 <span className="mt-1 block text-[#FFC700]">Expert tyre &amp; wheel services</span>
@@ -87,7 +82,6 @@ function Index() {
                   Book Appointment <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
-            </div>
           </div>
         </section>
 
