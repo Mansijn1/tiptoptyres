@@ -74,10 +74,19 @@ function Select({
 
 function TyreWheelVisual() {
   return (
-    <div className="tyre-finder-wheel" role="img" aria-label="Rotating alloy wheel and tyre">
+    <div
+      className="tyre-finder-wheel perspective-[1000px] transform-gpu transition-transform duration-700 hover:-translate-y-1 hover:scale-[1.03]"
+      role="img"
+      aria-label="Rotating alloy wheel and tyre"
+    >
       <div className="tyre-finder-wheel-shadow" />
       <div className="tyre-finder-wheel-perspective">
-        <img className="tyre-finder-wheel-image" src="/alloy-wheel.svg" alt="" aria-hidden="true" />
+        <img
+          className="tyre-finder-wheel-image drop-shadow-2xl"
+          src="/alloy-wheel.svg"
+          alt=""
+          aria-hidden="true"
+        />
       </div>
     </div>
   );
@@ -143,12 +152,8 @@ export function QuickTyreFinder() {
 
   return (
     <section id="quick-tyre-finder" className="tyre-finder-section">
-      <div className="tyre-finder-layout">
-        <div className="tyre-finder-intro">
-          <p className="tyre-finder-eyebrow">
-            <span aria-hidden="true" />
-            Find your perfect fit
-          </p>
+      <div className="tyre-finder-layout grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="tyre-finder-intro lg:col-span-6">
           <h2 className="tyre-finder-heading">
             The right tyres.
             <br />
@@ -161,7 +166,7 @@ export function QuickTyreFinder() {
           <p className="tyre-finder-caption">Built for the road ahead</p>
         </div>
 
-        <div className="tyre-finder-panel">
+        <div className="tyre-finder-panel lg:col-span-6">
           <div className="tyre-finder-panel-heading">
             <div>
               <p className="tyre-finder-kicker">TipTop Tyres &amp; Wheels</p>
@@ -294,7 +299,7 @@ export function QuickTyreFinder() {
           </form>
 
           <p className="tyre-finder-disclaimer">
-            Fitment and availability are confirmed by our team. No live inventory lookup.
+            Fitment and availability are confirmed by our team, No live inventory lookup.
           </p>
         </div>
       </div>

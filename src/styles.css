@@ -272,27 +272,8 @@
   }
 }
 
-.brand-marquee-track {
-  animation: marquee 30s linear infinite;
-}
-
-.brand-marquee:hover .brand-marquee-track,
-.brand-marquee:focus-within .brand-marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hazard,
-  .brand-marquee-track,
   .scanner-gauge,
   .brand-scan-beam,
   .brand-speed-ring,
@@ -313,51 +294,14 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(2.75rem, 6vw, 5.5rem) 1rem;
-  color: #17140b;
-  background:
-    radial-gradient(ellipse at 18% 22%, rgb(255 255 255 / 36%), transparent 32%),
-    radial-gradient(ellipse at 78% 88%, rgb(166 107 0 / 18%), transparent 38%),
-    linear-gradient(125deg, #f8d64a 0%, #f2bf18 48%, #eaaa0a 100%);
-}
-
-.tyre-finder-section::before,
-.tyre-finder-section::after {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  pointer-events: none;
-}
-
-.tyre-finder-section::before {
-  inset: 0;
-  opacity: 0.1;
-  background-image:
-    linear-gradient(rgb(255 255 255 / 25%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 25%) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(115deg, black, transparent 70%);
-}
-
-.tyre-finder-section::after {
-  top: -13rem;
-  left: -12rem;
-  width: 34rem;
-  height: 34rem;
-  border: 1px solid rgb(255 255 255 / 20%);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 2.5rem rgb(255 255 255 / 5%),
-    0 0 0 5rem rgb(255 255 255 / 4%);
+  padding: 3rem 1.5rem;
+  color: #000;
+  background: #facc15;
 }
 
 .tyre-finder-layout {
-  display: grid;
   width: min(100%, 80rem);
   margin: 0 auto;
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  align-items: center;
-  gap: clamp(2rem, 5vw, 5rem);
 }
 
 .tyre-finder-intro {
@@ -369,7 +313,6 @@
   justify-content: center;
 }
 
-.tyre-finder-eyebrow,
 .tyre-finder-caption {
   display: flex;
   align-items: center;
@@ -381,39 +324,27 @@
   text-transform: uppercase;
 }
 
-.tyre-finder-eyebrow {
-  color: #5d4300;
-}
-
-.tyre-finder-eyebrow span {
-  width: 0.5rem;
-  height: 0.5rem;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: #17140b;
-  box-shadow: 0 0 0 4px rgb(23 20 11 / 10%);
-}
-
 .tyre-finder-heading {
   margin: 0.9rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(2.85rem, 4.3vw, 4.5rem);
-  font-weight: 800;
-  line-height: 0.98;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
   letter-spacing: -0.035em;
   text-transform: uppercase;
   text-wrap: balance;
 }
 
 .tyre-finder-heading span {
-  color: #fff9dc;
-  text-shadow: 0 2px 0 rgb(98 68 0 / 20%);
+  display: inline-block;
+  margin-top: 0.12em;
+  color: #000;
 }
 
 .tyre-finder-copy {
   max-width: 26rem;
   margin: 1rem 0 0;
-  color: #483600;
+  color: #27210b;
   font-size: 0.97rem;
   line-height: 1.65;
 }
@@ -421,9 +352,9 @@
 .tyre-finder-wheel {
   position: relative;
   display: grid;
-  width: min(100%, 19rem);
+  width: min(100%, 21rem);
   aspect-ratio: 1;
-  margin: 0.3rem 0 0 -0.4rem;
+  margin: 0.15rem 0 0 -0.4rem;
   place-items: center;
 }
 
@@ -433,8 +364,9 @@
   display: grid;
   width: 100%;
   height: 100%;
-  transform: perspective(760px) rotateY(-16deg) rotateX(5deg);
   transform-style: preserve-3d;
+  animation: tyre-finder-wheel-3d 8s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .tyre-finder-wheel-shadow {
@@ -459,8 +391,6 @@
   width: 88%;
   height: 88%;
   object-fit: contain;
-  filter: drop-shadow(0 1.1rem 1rem rgb(48 34 3 / 34%))
-    drop-shadow(0 0 1.6rem rgb(255 255 255 / 22%));
   transform-origin: center;
   animation: tyre-finder-wheel-rotation 18s linear infinite;
   will-change: transform;
@@ -468,23 +398,18 @@
 
 .tyre-finder-caption {
   margin-top: 0;
-  color: #5d4300;
+  color: #493800;
   font-size: 0.62rem;
 }
 
 .tyre-finder-panel {
   min-width: 0;
-  padding: clamp(1.35rem, 3.2vw, 2.6rem);
-  border: 1px solid rgb(255 255 255 / 24%);
+  padding: 2rem;
+  border: 1px solid rgb(255 255 255 / 12%);
   border-radius: 1.5rem;
-  color: #f9f8f2;
-  background:
-    radial-gradient(ellipse at 100% 0%, rgb(241 183 20 / 9%), transparent 37%),
-    linear-gradient(145deg, #202123 0%, #111214 58%, #171719 100%);
-  box-shadow:
-    0 2rem 4rem rgb(71 49 1 / 28%),
-    0 0 0 1px rgb(39 34 19 / 20%),
-    inset 0 1px 0 rgb(255 255 255 / 8%);
+  color: #fff;
+  background: #18181b;
+  box-shadow: 0 1.5rem 3rem rgb(0 0 0 / 28%);
 }
 
 .tyre-finder-panel-heading {
@@ -576,12 +501,12 @@
 }
 
 .tyre-finder-tab.is-active {
-  border-color: #e9bd2d;
-  color: #ffda56;
-  background: linear-gradient(145deg, rgb(240 195 52 / 14%), rgb(240 195 52 / 5%));
+  border-color: #facc15;
+  color: #facc15;
+  background: rgb(250 204 21 / 8%);
   box-shadow:
-    inset 0 0 1rem rgb(237 190 44 / 9%),
-    0 0 1rem rgb(237 190 44 / 14%);
+    inset 0 0 1rem rgb(250 204 21 / 5%),
+    0 0 1rem rgb(250 204 21 / 8%);
 }
 
 .tyre-finder-tab:focus-visible,
@@ -633,10 +558,10 @@
   min-width: 0;
   min-height: 3.2rem;
   padding: 0.75rem 2rem 0.75rem 0.85rem;
-  border: 1px solid #444447;
+  border: 1px solid #3f3f46;
   border-radius: 0.6rem;
   color: #f8f7f2;
-  background-color: #171719;
+  background-color: #27272a;
   font: inherit;
   font-size: 0.87rem;
   transition:
@@ -650,10 +575,10 @@
 }
 
 .tyre-finder-control:focus {
-  border-color: #e9bd2d;
+  border-color: #facc15;
   outline: none;
-  background-color: #1d1c19;
-  box-shadow: 0 0 0 3px rgb(233 189 45 / 12%);
+  background-color: #27272a;
+  box-shadow: 0 0 0 3px rgb(250 204 21 / 12%);
 }
 
 .tyre-finder-control:disabled {
@@ -692,18 +617,16 @@
   position: relative;
   display: flex;
   width: 100%;
-  min-height: 3.5rem;
+  min-height: 4rem;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding: 0.9rem 1.2rem;
-  border: 1px solid #ffe57e;
+  padding: 1rem 1.2rem;
+  border: 1px solid #fde047;
   border-radius: 0.65rem;
-  color: #17140b;
-  background: linear-gradient(100deg, #f5cd43 0%, #f8d957 50%, #ecc02c 100%);
-  box-shadow:
-    0 0.65rem 1.5rem rgb(237 190 44 / 18%),
-    inset 0 1px 0 rgb(255 255 255 / 44%);
+  color: #000;
+  background: #facc15;
+  box-shadow: 0 0.65rem 1.5rem rgb(250 204 21 / 18%);
   font-size: 0.84rem;
   font-weight: 900;
   letter-spacing: 0.13em;
@@ -769,14 +692,18 @@
   }
 }
 
+@keyframes tyre-finder-wheel-3d {
+  from {
+    transform: translate3d(0, 0, 0) rotateY(25deg) rotateX(8deg);
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotateY(33deg) rotateX(12deg);
+  }
+}
+
 @media (max-width: 900px) {
   .tyre-finder-section {
     padding-block: 3.5rem;
-  }
-
-  .tyre-finder-layout {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 1.75rem;
   }
 
   .tyre-finder-intro {
@@ -784,7 +711,7 @@
   }
 
   .tyre-finder-heading {
-    font-size: clamp(2.2rem, 5vw, 3.3rem);
+    font-size: clamp(2.8rem, 5.4vw, 4.3rem);
   }
 
   .tyre-finder-wheel {
@@ -803,13 +730,11 @@
 
 @media (max-width: 700px) {
   .tyre-finder-section {
-    padding: 2.75rem 1rem;
+    padding: 3rem 1rem;
   }
 
   .tyre-finder-layout {
     max-width: 38rem;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
   }
 
   .tyre-finder-intro {
@@ -819,7 +744,7 @@
   }
 
   .tyre-finder-heading {
-    font-size: clamp(2.65rem, 10.5vw, 3.65rem);
+    font-size: clamp(2.65rem, 11vw, 3.9rem);
   }
 
   .tyre-finder-copy {
@@ -876,6 +801,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .tyre-finder-wheel-perspective {
+    animation: none;
+  }
+
   .tyre-finder-wheel-image {
     animation: none;
   }
@@ -888,79 +817,36 @@
 }
 
 .brand-marquee {
-  padding-block: 1.25rem 1rem;
-  scroll-snap-type: x proximity;
+  position: relative;
+  width: 100%;
+  height: clamp(26rem, 36vw, 30rem);
+  overflow: hidden;
+  perspective: 1100px;
+  perspective-origin: center 42%;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .brand-marquee-track {
-  --brand-arc-top: -14px;
-  --brand-arc-90: -13px;
-  --brand-arc-80: -11px;
-  --brand-arc-70: -8px;
-  --brand-arc-60: -4px;
-  --brand-card-width: clamp(14rem, 21vw, 17.5rem);
-  --brand-half-card-width: clamp(7rem, 10.5vw, 8.75rem);
-  --brand-card-gap: 1rem;
-  margin-left: calc(
-    50% - var(--brand-card-width) - var(--brand-card-width) - var(--brand-half-card-width) -
-      var(--brand-card-gap) - var(--brand-card-gap)
-  );
-}
-
-.brand-marquee-group {
-  gap: var(--brand-card-gap);
-  padding-right: var(--brand-card-gap);
-}
-
-.brand-marquee-card-arc {
-  flex: 0 0 auto;
-  animation: brand-marquee-arc 30s linear infinite;
-  transform-origin: center bottom;
-  will-change: transform;
-}
-
-.brand-marquee:hover .brand-marquee-card-arc,
-.brand-marquee:focus-within .brand-marquee-card-arc {
-  animation-play-state: paused;
-}
-
-.brand-marquee-group .brand-marquee-card-arc:nth-child(1) {
-  animation-delay: -18s;
-}
-
-.brand-marquee-group .brand-marquee-card-arc:nth-child(2) {
-  animation-delay: -24s;
-}
-
-.brand-marquee-group .brand-marquee-card-arc:nth-child(3) {
-  animation-delay: 0s;
-}
-
-.brand-marquee-group .brand-marquee-card-arc:nth-child(4) {
-  animation-delay: -6s;
-}
-
-.brand-marquee-group .brand-marquee-card-arc:nth-child(5) {
-  animation-delay: -12s;
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
 }
 
 .brand-marquee-card {
-  width: var(--brand-card-width);
+  width: clamp(10rem, 22vw, 17.5rem);
   height: clamp(18rem, 24vw, 20rem);
-  transform: perspective(900px) rotateX(0) rotateY(0) scale(1);
   transform-style: preserve-3d;
   transform-origin: center;
+  backface-visibility: hidden;
   transition:
-    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
     border-color 240ms ease,
     box-shadow 240ms ease;
-  scroll-snap-align: center;
+  will-change: transform, opacity;
 }
 
 .brand-marquee-card:hover,
 .brand-marquee-card:focus-within {
-  z-index: 2;
-  transform: perspective(900px) rotateX(3deg) rotateY(-5deg) scale(1.035) translateY(-0.25rem);
   border-color: #fbbf24;
   box-shadow:
     0 1.25rem 2rem rgb(0 0 0 / 24%),
@@ -1013,62 +899,14 @@
   transform: translateX(125%) skewX(-12deg);
 }
 
-@keyframes brand-marquee-arc {
-  0%,
-  100% {
-    transform: translateY(var(--brand-arc-top)) scale(1.025);
-  }
-  10%,
-  90% {
-    transform: translateY(var(--brand-arc-90)) scale(1.02);
-  }
-  20%,
-  80% {
-    transform: translateY(var(--brand-arc-80)) scale(1.01);
-  }
-  30%,
-  70% {
-    transform: translateY(var(--brand-arc-70)) scale(1);
-  }
-  40%,
-  60% {
-    transform: translateY(var(--brand-arc-60)) scale(0.99);
-  }
-  50% {
-    transform: translateY(0) scale(0.985);
-  }
-}
-
-@media (max-width: 900px) {
-  .brand-marquee-track {
-    --brand-arc-top: -10px;
-    --brand-arc-90: -9px;
-    --brand-arc-80: -8px;
-    --brand-arc-70: -6px;
-    --brand-arc-60: -3px;
-    --brand-card-width: clamp(13.5rem, 27vw, 16.5rem);
-    --brand-half-card-width: clamp(6.75rem, 13.5vw, 8.25rem);
-  }
-
-  .brand-marquee-card {
-    height: clamp(17.5rem, 34vw, 19rem);
-  }
-}
-
 @media (max-width: 600px) {
-  .brand-marquee-track {
-    --brand-arc-top: -6px;
-    --brand-arc-90: -5px;
-    --brand-arc-80: -4px;
-    --brand-arc-70: -3px;
-    --brand-arc-60: -1px;
-    --brand-card-width: clamp(13rem, 70vw, 15rem);
-    --brand-half-card-width: clamp(6.5rem, 35vw, 7.5rem);
-    --brand-card-gap: 0.75rem;
+  .brand-marquee {
+    height: 25rem;
   }
 
   .brand-marquee-card {
-    height: 18rem;
+    width: 10.5rem;
+    height: 17rem;
   }
 }
 
@@ -1096,29 +934,29 @@
 
 @media (prefers-reduced-motion: reduce) {
   .brand-marquee {
-    overflow-x: auto;
-    mask-image: none;
-    scroll-behavior: auto;
+    height: auto;
+    overflow: visible;
+    perspective: none;
   }
 
   .brand-marquee-track {
-    margin-left: 0;
-  }
-
-  .brand-marquee-card-arc {
-    animation: none;
-    transform: none;
-    will-change: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
   }
 
   .brand-marquee-card {
-    transform: none;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    height: 20rem;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
     transition: none;
-  }
-
-  .brand-marquee-card:hover,
-  .brand-marquee-card:focus-within {
-    transform: none;
+    will-change: auto;
   }
 
   .brand-marquee-card::after,

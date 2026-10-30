@@ -48,9 +48,9 @@ function Index() {
       <main>
         {/* Hero */}
         <div className="hazard h-10 w-full" aria-hidden="true" />
-        <section className="relative flex h-[calc(100vh-40px)] w-full flex-col items-center justify-center overflow-hidden text-ink-foreground">
+        <section className="relative h-[calc(100vh-40px)] w-full flex flex-col justify-center items-center overflow-hidden text-ink-foreground">
           <video
-            className="absolute inset-0 z-0 h-full w-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover z-0"
             autoPlay
             loop
             muted
@@ -60,28 +60,28 @@ function Index() {
           >
             <source src="/herovideo.mp4" type="video/mp4" />
           </video>
-          <div className="relative z-20 mx-auto max-w-4xl px-4 text-center">
-              <h1 className="mt-0 font-sans text-[clamp(1.65rem,6vw,2.25rem)] font-black uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
-                <span className="block text-white">Drive with confidence.</span>
-                <span className="mt-1 block text-[#FFC700]">Expert tyre &amp; wheel services</span>
-              </h1>
-              <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-zinc-200 md:text-base">
-                Premium tyres, precision alignment and fast fitting in Mount Druitt.
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
-                <a
-                  href="#services"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-white bg-[#1E2026]/80 px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black sm:px-8 sm:py-4 sm:text-base"
-                >
-                  Explore Services <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
-                  href="#booking"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#FFC700] px-5 py-3 text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-black/30 transition-all duration-300 hover:scale-105 hover:bg-[#ffda4d] sm:px-8 sm:py-4 sm:text-base"
-                >
-                  Book Appointment <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
+          <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+            <h1 className="mt-0 font-sans text-[clamp(1.65rem,6vw,2.25rem)] font-black uppercase leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
+              <span className="block text-white">Drive with confidence.</span>
+              <span className="mt-1 block text-[#FFC700]">Expert tyre &amp; wheel services</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-zinc-200 md:text-base">
+              Premium tyres, precision alignment and fast fitting in Mount Druitt.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+              <a
+                href="#services"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-white bg-[#1E2026]/80 px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black sm:px-8 sm:py-4 sm:text-base"
+              >
+                Explore Services <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#booking"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#FFC700] px-5 py-3 text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-black/30 transition-all duration-300 hover:scale-105 hover:bg-[#ffda4d] sm:px-8 sm:py-4 sm:text-base"
+              >
+                Book Appointment <ArrowRight className="h-4 w-4" />
+              </a>
+          </div>
           </div>
         </section>
 
