@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Car, CheckCircle, Disc, Search } from "lucide-react";
+import { CheckCircle, Search } from "lucide-react";
 
 const WIDTHS = [
   "155",
@@ -32,9 +32,9 @@ const YEARS = Array.from({ length: 20 }, (_, index) => String(2026 - index));
 const STATES = ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"];
 
 const tabs = [
-  { id: "size", label: "By Tyre Size", icon: Disc },
-  { id: "vehicle", label: "By Vehicle", icon: Car },
-  { id: "rego", label: "By Rego", icon: CheckCircle },
+  { id: "size", label: "By Tyre Size" },
+  { id: "vehicle", label: "By Vehicle" },
+  { id: "rego", label: "By Rego" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -77,13 +77,13 @@ function TyreWheelVisual() {
     <div
       className="tyre-finder-wheel perspective-[1000px] transform-gpu transition-transform duration-700 hover:-translate-y-1 hover:scale-[1.03]"
       role="img"
-      aria-label="Rotating alloy wheel and tyre"
+      aria-label="Rotating tyre"
     >
       <div className="tyre-finder-wheel-shadow" />
       <div className="tyre-finder-wheel-perspective">
         <img
           className="tyre-finder-wheel-image drop-shadow-2xl"
-          src="/alloy-wheel.svg"
+          src="/tyre.png"
           alt=""
           aria-hidden="true"
         />
@@ -173,11 +173,10 @@ export function QuickTyreFinder() {
               <h3>Find tyres</h3>
               <p className="tyre-finder-panel-copy">Choose how you’d like to get started.</p>
             </div>
-            <Disc className="tyre-finder-heading-icon" aria-hidden="true" />
           </div>
 
           <div className="tyre-finder-tabs" role="tablist" aria-label="Choose how to find tyres">
-            {tabs.map(({ id, label, icon: Icon }) => {
+            {tabs.map(({ id, label }) => {
               const active = tab === id;
               return (
                 <button
@@ -194,7 +193,6 @@ export function QuickTyreFinder() {
                   }}
                   className={`tyre-finder-tab${active ? " is-active" : ""}`}
                 >
-                  <Icon aria-hidden="true" />
                   <span>{label}</span>
                 </button>
               );
