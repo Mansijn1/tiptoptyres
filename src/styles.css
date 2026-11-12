@@ -686,6 +686,85 @@
   text-align: center;
 }
 
+.tyre-finder-results {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.tyre-finder-results-heading {
+  margin: 0;
+  color: #f8f7f2;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.tyre-finder-results-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tyre-finder-result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #3f3f46;
+  border-radius: 0.7rem;
+  background: #222225;
+}
+
+.tyre-finder-result-name,
+.tyre-finder-result-size,
+.tyre-finder-result-price {
+  margin: 0;
+}
+
+.tyre-finder-result-name {
+  color: #f8f7f2;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.tyre-finder-result-size {
+  margin-top: 0.25rem;
+  color: #aaa9a1;
+  font-size: 0.78rem;
+}
+
+.tyre-finder-result-meta {
+  display: grid;
+  justify-items: end;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+}
+
+.tyre-finder-result-price {
+  color: #facc15;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.tyre-finder-stock-badge {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.tyre-finder-stock-badge.is-in-stock {
+  color: #bbf7d0;
+  background: rgb(22 163 74 / 18%);
+}
+
+.tyre-finder-stock-badge.is-out-of-stock {
+  color: #fecaca;
+  background: rgb(220 38 38 / 16%);
+}
+
 @keyframes tyre-finder-wheel-rotation {
   to {
     transform: rotate(360deg);
