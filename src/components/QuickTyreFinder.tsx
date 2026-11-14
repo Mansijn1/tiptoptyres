@@ -188,6 +188,13 @@ export function QuickTyreFinder() {
   const searchRequestId = useRef(0);
 
   useEffect(() => {
+    const openRegoSearch = () => setTab("rego");
+    window.addEventListener("tiptop:open-rego-search", openRegoSearch);
+    if (window.location.hash === "#quick-tyre-finder") openRegoSearch();
+    return () => window.removeEventListener("tiptop:open-rego-search", openRegoSearch);
+  }, []);
+
+  useEffect(() => {
     let isCurrentRequest = true;
 
     async function fetchVehicles() {

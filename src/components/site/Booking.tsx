@@ -109,35 +109,35 @@ export function Booking() {
   );
 
   const field =
-    "h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-900 placeholder:text-slate-400 transition-colors focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/25";
+    "h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-900 placeholder:text-slate-400 transition-colors focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/25";
 
   return (
     <section
       id="booking"
-      className="relative isolate overflow-hidden bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 py-12 text-slate-900 sm:py-20 lg:py-24"
+      className="relative isolate overflow-hidden bg-[#f5f4ef] py-12 text-slate-900 sm:py-20 lg:py-24"
     >
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40"
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(120,80,0,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,80,0,0.035)_1px,transparent_1px)] bg-[size:4rem_4rem]"
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute -left-20 top-4 z-0 h-64 w-64 rounded-full border border-amber-950/10 sm:left-[-5rem] sm:top-8 sm:h-96 sm:w-96">
-        <div className="booking-wire-ring absolute inset-[12%] rounded-full border border-dashed border-amber-950/15" />
-        <div className="booking-wire-ring booking-wire-ring-inner absolute inset-[25%] rounded-full border border-amber-950/10" />
-        <div className="absolute inset-[38%] rounded-full border border-amber-950/10" />
+      <div className="pointer-events-none absolute -left-20 top-4 z-0 h-64 w-64 rounded-full border border-amber-900/10 sm:left-[-5rem] sm:top-8 sm:h-96 sm:w-96">
+        <div className="booking-wire-ring absolute inset-[12%] rounded-full border border-dashed border-amber-900/15" />
+        <div className="booking-wire-ring booking-wire-ring-inner absolute inset-[25%] rounded-full border border-amber-900/10" />
+        <div className="absolute inset-[38%] rounded-full border border-amber-900/10" />
       </div>
-      <div className="pointer-events-none absolute -right-20 top-0 z-0 h-64 w-64 rounded-full border border-amber-950/10 sm:right-[-5rem] sm:top-4 sm:h-96 sm:w-96">
-        <div className="booking-speed-ring absolute inset-[12%] rounded-full border-[3px] border-transparent border-t-amber-950/20 border-r-amber-950/10" />
-        <div className="absolute inset-[25%] rounded-full border border-dashed border-amber-950/10" />
-        <Gauge className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-amber-950/15" />
+      <div className="pointer-events-none absolute -right-20 top-0 z-0 h-64 w-64 rounded-full border border-amber-900/10 sm:right-[-5rem] sm:top-4 sm:h-96 sm:w-96">
+        <div className="booking-speed-ring absolute inset-[12%] rounded-full border-[3px] border-transparent border-t-amber-900/20 border-r-amber-900/10" />
+        <div className="absolute inset-[25%] rounded-full border border-dashed border-amber-900/10" />
+        <Gauge className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-amber-900/15" />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-white p-5 text-slate-900 shadow-2xl shadow-amber-950/20 sm:p-8 lg:p-10">
+        <div className="relative overflow-hidden rounded-3xl border border-amber-900/15 bg-white p-5 text-slate-900 shadow-2xl shadow-amber-950/10 sm:p-8 lg:p-10">
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(56,189,248,0.07),_transparent_55%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(234,179,8,0.07),_transparent_55%)]"
             aria-hidden="true"
           />
           <div className="relative z-10 text-center">
-            <p className="inline-flex rounded-full border border-amber-500/40 bg-amber-400/10 px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.24em] text-amber-700 shadow-[0_0_22px_rgba(251,191,36,0.12)] sm:text-xs">
+            <p className="inline-flex rounded-full border border-amber-500/40 bg-amber-400/10 px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.24em] text-amber-800 shadow-[0_0_22px_rgba(251,191,36,0.12)] sm:text-xs">
               Online Booking
             </p>
             <h2 className="booking-metallic-title mt-4 font-display text-3xl font-black uppercase tracking-wide sm:text-4xl lg:text-5xl">
@@ -162,9 +162,9 @@ export function Booking() {
                   aria-current={active ? "step" : undefined}
                   className={`flex min-h-12 items-center gap-2 rounded-xl border px-2 py-2 text-[10px] font-bold uppercase tracking-wide transition-all duration-300 sm:justify-center sm:gap-2.5 sm:text-xs ${
                     active
-                      ? "booking-step-active border-amber-200/70 bg-gradient-to-br from-amber-300 via-amber-400 to-orange-500 text-slate-950 shadow-[0_0_26px_rgba(245,158,11,0.35)]"
+                      ? "booking-step-active border-amber-300/70 bg-gradient-to-br from-amber-300 via-amber-400 to-orange-400 text-slate-950 shadow-[0_0_26px_rgba(245,158,11,0.24)]"
                       : completed
-                        ? "border-amber-400/40 bg-amber-50 text-amber-800"
+                        ? "border-amber-400/50 bg-amber-50 text-amber-800"
                         : "border-slate-200 bg-white/80 text-slate-500"
                   }`}
                 >
@@ -196,18 +196,18 @@ export function Booking() {
                     aria-pressed={service === item}
                     className={`booking-service-card group relative flex min-h-[116px] items-center gap-3 overflow-hidden rounded-2xl border bg-white p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:scale-[1.015] ${
                       service === item
-                        ? "booking-service-selected border-sky-500 bg-white text-slate-900 shadow-[inset_0_0_24px_rgba(56,189,248,0.08),0_0_20px_rgba(56,189,248,0.12)]"
-                        : "border-slate-200 bg-white text-slate-800 hover:border-red-500/50 hover:shadow-xl"
+                        ? "booking-service-selected border-amber-400 bg-white text-slate-900 shadow-[inset_0_0_24px_rgba(251,191,36,0.08),0_0_20px_rgba(245,158,11,0.15)]"
+                        : "border-slate-200 text-slate-800 hover:border-amber-400/70 hover:shadow-xl"
                     }`}
                   >
                     {service === item && (
-                      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(56,189,248,0.13),_transparent_55%)]" />
+                      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(251,191,36,0.12),_transparent_55%)]" />
                     )}
                     <span
                       className={`relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-xl border transition-colors ${
                         service === item
-                          ? "border-sky-300/60 bg-sky-50 text-sky-700"
-                          : "border-slate-200 bg-slate-50 text-slate-500 group-hover:text-sky-700"
+                          ? "border-amber-300/60 bg-amber-50 text-amber-700"
+                          : "border-slate-200 bg-slate-50 text-slate-500 group-hover:text-amber-700"
                       }`}
                     >
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -223,8 +223,8 @@ export function Booking() {
                     </span>
                     {service === item && (
                       <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center">
-                        <span className="booking-wheel-preview absolute inset-0 rounded-full border border-sky-500/60" />
-                        <Disc3 className="h-5 w-5 text-sky-700" aria-hidden="true" />
+                        <span className="booking-wheel-preview absolute inset-0 rounded-full border border-amber-500/60" />
+                        <Disc3 className="h-5 w-5 text-amber-700" aria-hidden="true" />
                       </span>
                     )}
                   </button>
@@ -349,7 +349,9 @@ export function Booking() {
             {step === 3 && (
               <div className="text-center">
                 <CalendarCheck className="mx-auto h-14 w-14 text-emerald-600" />
-                <h3 className="mt-4 text-3xl font-bold uppercase">Booking request received</h3>
+                <h3 className="mt-4 text-3xl font-bold uppercase text-slate-900">
+                  Booking request received
+                </h3>
                 <p className="mt-2 text-slate-600">
                   Reference <strong className="text-slate-900">{ref}</strong>
                 </p>

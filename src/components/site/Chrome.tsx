@@ -14,12 +14,12 @@ export function Header() {
           />
         </Link>
         <nav className="hidden items-center gap-4 text-sm font-medium lg:gap-7 md:flex">
-          <a href="/#quick-tyre-finder" className="text-ink-muted hover:text-primary">
-            Find Tyres
-          </a>
-          <a href="/#services" className="text-ink-muted hover:text-primary">
-            Services
-          </a>
+          <Link to="/about" className="text-ink-muted hover:text-primary">
+            About Us
+          </Link>
+          <Link to="/wheels" className="text-ink-muted hover:text-primary">
+            Wheels
+          </Link>
           <a href="/#brands" className="text-ink-muted hover:text-primary">
             Brands
           </a>
@@ -45,18 +45,18 @@ export function Header() {
           aria-label="Main navigation"
           className="flex w-full items-center justify-between gap-3 overflow-x-auto border-t border-white/10 py-1 text-xs font-semibold md:hidden"
         >
-          <a
-            href="/#quick-tyre-finder"
+          <Link
+            to="/about"
             className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
           >
-            Find Tyres
-          </a>
-          <a
-            href="/#services"
+            About Us
+          </Link>
+          <Link
+            to="/wheels"
             className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
           >
-            Services
-          </a>
+            Wheels
+          </Link>
           <a
             href="/#brands"
             className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
