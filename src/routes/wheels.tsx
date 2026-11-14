@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, Check, Disc3, MapPin } from "lucide-react";
+import { ArrowRight, Check, MapPin } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import {
   Dialog,
@@ -17,6 +17,8 @@ type Wheel = {
   size: string;
   finish: string;
   style: "silver" | "bronze" | "black";
+  image: string;
+  price: number;
 };
 
 const wheels: Wheel[] = [
@@ -26,6 +28,8 @@ const wheels: Wheel[] = [
     size: "16x7.0",
     finish: "Satin Black",
     style: "black",
+    image: "/L2018%20Chaos.webp",
+    price: 289,
   },
   {
     name: "SR05",
@@ -33,6 +37,8 @@ const wheels: Wheel[] = [
     size: "16x7.0",
     finish: "Satin Black",
     style: "black",
+    image: "/SR05%20wheels.webp",
+    price: 299,
   },
   {
     name: "DX136",
@@ -40,6 +46,8 @@ const wheels: Wheel[] = [
     size: "15x7.0",
     finish: "Matte Bronze",
     style: "bronze",
+    image: "/DX136.jpg",
+    price: 289,
   },
   {
     name: "508",
@@ -47,6 +55,8 @@ const wheels: Wheel[] = [
     size: "17x7.5",
     finish: "Silver Machine Lip",
     style: "silver",
+    image: "/508.webp",
+    price: 329,
   },
 ];
 
@@ -121,79 +131,32 @@ function WheelsPage() {
     <>
       <Header />
       <main className="overflow-hidden bg-[#0a0a0a] text-white">
-        <section className="wheels-hero relative isolate flex min-h-[620px] items-center overflow-hidden border-b border-white/10 sm:min-h-[680px]">
+        <section
+          className="wheels-hero relative isolate flex min-h-[560px] items-center overflow-hidden border-b border-white/10 bg-cover bg-center bg-no-repeat sm:min-h-[620px]"
+          style={{ backgroundImage: "url('/wheels-background.webp')" }}
+        >
           <div
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_72%_42%,rgba(234,179,8,0.2),transparent_35%),radial-gradient(ellipse_at_50%_100%,rgba(234,179,8,0.07),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40"
             aria-hidden="true"
           />
-          <div
-            className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:48px_48px]"
-            aria-hidden="true"
-          />
-          <div className="pointer-events-none absolute -right-36 top-1/2 -z-10 hidden aspect-square w-[min(64vw,760px)] -translate-y-1/2 items-center justify-center rounded-full border border-amber-300/10 lg:flex">
-            <div className="absolute inset-[8%] rounded-full border border-dashed border-amber-300/15" />
-            <div className="absolute inset-[18%] rounded-full border border-white/5" />
-            <div className="absolute inset-[28%] rounded-full border border-dashed border-white/10" />
-            <img
-              src="/alloy-wheel.svg"
-              alt=""
-              className="wheels-hero-wheel relative w-[55%] opacity-35"
-              aria-hidden="true"
-            />
-          </div>
-          <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
             <div className="max-w-3xl">
-              <p
-                className="wheels-reveal inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/[0.07] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.24em] text-amber-300 sm:text-xs"
-                style={{ animationDelay: "100ms" }}
-              >
-                <Disc3 className="h-4 w-4" aria-hidden="true" />
-                TipTop Tyres &amp; Wheels · Mount Druitt
-              </p>
-              <h1 className="mt-7 font-display text-[clamp(2.6rem,8vw,6.6rem)] font-black uppercase leading-[0.94] tracking-tight">
-                <span className="wheels-reveal block" style={{ animationDelay: "220ms" }}>
-                  Precision alloy
-                </span>
-                <span
-                  className="wheels-reveal block text-amber-400"
-                  style={{ animationDelay: "360ms" }}
-                >
-                  &amp; performance
-                </span>
-                <span className="wheels-reveal block" style={{ animationDelay: "500ms" }}>
-                  wheels.
-                </span>
+              <h1 className="wheels-reveal font-display text-[clamp(2.6rem,8vw,6.6rem)] font-black uppercase leading-[0.94] tracking-tight">
+                <span className="block">Precision alloy</span>
+                <span className="block text-amber-400">&amp; performance</span>
+                <span className="block">wheels.</span>
               </h1>
-              <p
-                className="wheels-reveal mt-6 max-w-xl text-sm leading-7 text-zinc-300 sm:text-base"
-                style={{ animationDelay: "650ms" }}
-              >
-                The right wheels change the whole stance. Explore our Starcorp Racing and SC Racing
-                picks, then talk to our Mount Druitt team about the right fit for your vehicle.
+              <p className="wheels-reveal mt-6 max-w-3xl text-sm leading-7 text-zinc-200 sm:text-base">
+                Premium Starcorp Racing and SC Racing wheels, expertly matched to your vehicle.
               </p>
-              <a
-                href="#wheel-range"
-                className="wheels-reveal mt-8 inline-flex min-h-12 items-center gap-3 rounded-sm bg-[#eab308] px-6 py-3 text-xs font-black uppercase tracking-[0.16em] text-black transition-all hover:bg-yellow-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] sm:text-sm"
-                style={{ animationDelay: "780ms" }}
-              >
-                Explore the range
-                <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </a>
             </div>
           </div>
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent"
-            aria-hidden="true"
-          />
         </section>
 
         <section id="wheel-range" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-amber-400 sm:text-xs">
-                The wheel edit
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-black uppercase tracking-tight sm:text-4xl lg:text-5xl">
+              <h2 className="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl lg:text-5xl">
                 Built to stand apart
               </h2>
               <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-400">
@@ -228,82 +191,70 @@ function WheelsPage() {
             })}
           </div>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {visibleWheels.map((wheel, index) => (
               <article
                 key={wheel.name}
-                className="wheels-card group relative overflow-hidden rounded-sm border border-white/10 bg-[#111214] transition duration-500 hover:-translate-y-1 hover:border-yellow-500/80 hover:shadow-[0_24px_70px_rgba(234,179,8,0.1)]"
+                className="wheels-card group relative overflow-hidden rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-yellow-500 hover:shadow-[0_24px_70px_rgba(234,179,8,0.1)]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative isolate flex aspect-[1.14/1] items-center justify-center overflow-hidden bg-[#0e0f10]">
+                <div className="relative isolate mx-4 mt-4 flex aspect-[1.14/1] items-center justify-center overflow-hidden rounded-xl bg-zinc-800/70 p-4">
                   <div
-                    className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_54%,rgba(255,255,255,0.1),transparent_48%),linear-gradient(145deg,rgba(234,179,8,0.04),transparent_52%)]"
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-x-[15%] bottom-[10%] h-5 rounded-[50%] bg-black/70 blur-xl"
+                    className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_52%,rgba(255,255,255,0.1),transparent_52%),radial-gradient(ellipse_at_50%_100%,rgba(234,179,8,0.09),transparent_65%)]"
                     aria-hidden="true"
                   />
                   <img
-                    src="/alloy-wheel.svg"
-                    alt={`${wheel.finish} alloy wheel`}
+                    src={wheel.image}
+                    alt={`${wheel.brand} ${wheel.name} alloy wheel in ${wheel.finish}`}
                     loading="lazy"
-                    className={`wheels-product-image wheels-product-${wheel.style} relative z-10 w-[66%] max-w-[270px] drop-shadow-[0_22px_34px_rgba(0,0,0,0.6)] transition-transform duration-700 ease-out group-hover:rotate-[360deg]`}
+                    className="wheels-product-image relative z-10 h-full w-[88%] object-contain drop-shadow-2xl transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  <span className="absolute left-4 top-4 rounded-sm border border-white/10 bg-black/60 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-300">
+                  <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-300">
                     {wheel.size}
                   </span>
-                  <span className="absolute right-4 top-4 text-[8px] font-bold uppercase tracking-[0.16em] text-zinc-600">
-                    Style preview
-                  </span>
-                  <div className="wheels-card-actions absolute inset-x-3 bottom-3 z-20 flex translate-y-2 flex-col gap-2 opacity-100 transition-all duration-300 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-within:translate-y-0 sm:group-focus-within:opacity-100">
-                    <button
-                      type="button"
-                      onClick={() => openEnquiry(wheel)}
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-[#eab308] px-4 py-3 text-[10px] font-black uppercase tracking-[0.12em] text-black transition-colors hover:bg-yellow-300"
-                    >
-                      Check vehicle fitment
-                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => openEnquiry(wheel)}
-                      className="inline-flex min-h-10 items-center justify-center gap-2 rounded-sm border border-white/15 bg-black/75 px-4 py-2 text-[10px] font-black uppercase tracking-[0.12em] text-white backdrop-blur transition-colors hover:border-amber-300 hover:text-amber-300"
-                    >
-                      Get a quote
-                    </button>
-                  </div>
                 </div>
                 <div className="p-5 sm:p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-[9px] font-extrabold uppercase tracking-[0.22em] text-amber-400">
+                    <p className="text-[9px] font-extrabold uppercase tracking-[0.22em] text-yellow-400">
                       {wheel.brand}
                     </p>
                     <span className="h-px flex-1 bg-white/10" aria-hidden="true" />
-                    <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-zinc-500">
+                    <p className="text-right text-[9px] font-bold uppercase tracking-[0.14em] text-zinc-300">
                       {wheel.finish}
                     </p>
                   </div>
-                  <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-wide">
+                  <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-wide text-white">
                     {wheel.name}
                   </h3>
-                  <div className="mt-4 flex items-end justify-between border-t border-white/10 pt-4">
-                    <div>
-                      <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                        From
-                      </p>
-                      <p className="mt-1 font-display text-xl font-bold tracking-wide text-white">
-                        $XX <span className="text-[10px] font-medium text-zinc-500">/ enquire</span>
-                      </p>
+                  <div className="mt-4 border-t border-white/10 pt-4">
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-zinc-400">
+                          From
+                        </p>
+                        <p className="mt-1 font-display text-xl font-bold tracking-wide text-yellow-400">
+                          ${wheel.price}{" "}
+                          <span className="text-[10px] font-medium text-zinc-300">/ wheel</span>
+                        </p>
+                      </div>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => openEnquiry(wheel)}
-                      aria-label={`Enquire about ${wheel.brand} ${wheel.name}`}
-                      className="inline-flex h-10 w-10 items-center justify-center border border-white/15 text-amber-300 transition-colors hover:border-amber-400 hover:bg-amber-400 hover:text-black"
-                    >
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </button>
+                    <div className="mt-4 grid gap-2">
+                      <button
+                        type="button"
+                        onClick={() => openEnquiry(wheel)}
+                        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-yellow-500 px-4 py-3 text-[10px] font-black uppercase tracking-[0.12em] text-black transition-colors hover:bg-yellow-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
+                      >
+                        Check vehicle fitment
+                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => openEnquiry(wheel)}
+                        className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/[0.03] px-4 py-2 text-[10px] font-black uppercase tracking-[0.12em] text-white transition-colors hover:border-yellow-400 hover:text-yellow-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
+                      >
+                        Get a quote
+                      </button>
+                    </div>
                   </div>
                 </div>
               </article>

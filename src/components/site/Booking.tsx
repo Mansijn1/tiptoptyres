@@ -114,7 +114,7 @@ export function Booking() {
   return (
     <section
       id="booking"
-      className="relative isolate overflow-hidden bg-[#f5f4ef] py-12 text-slate-900 sm:py-20 lg:py-24"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-amber-600 via-yellow-600 to-orange-700 py-12 text-slate-900 sm:py-20 lg:py-24"
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(120,80,0,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,80,0,0.035)_1px,transparent_1px)] bg-[size:4rem_4rem]"
@@ -131,19 +131,15 @@ export function Booking() {
         <Gauge className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-amber-900/15" />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-amber-900/15 bg-white p-5 text-slate-900 shadow-2xl shadow-amber-950/10 sm:p-8 lg:p-10">
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(234,179,8,0.07),_transparent_55%)]"
-            aria-hidden="true"
-          />
+        <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 text-slate-900 shadow-xl shadow-black/20 sm:p-8 lg:p-10">
           <div className="relative z-10 text-center">
             <p className="inline-flex rounded-full border border-amber-500/40 bg-amber-400/10 px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.24em] text-amber-800 shadow-[0_0_22px_rgba(251,191,36,0.12)] sm:text-xs">
               Online Booking
             </p>
-            <h2 className="booking-metallic-title mt-4 font-display text-3xl font-black uppercase tracking-wide sm:text-4xl lg:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-extrabold uppercase tracking-wide text-zinc-900 sm:text-4xl lg:text-5xl">
               Book a service in 60 seconds
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-zinc-700 sm:text-base">
               Choose your service, find a time that suits, and leave the rest to our tyre experts.
               We’ll confirm your booking by phone.
             </p>
@@ -235,7 +231,7 @@ export function Booking() {
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <p className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-800">
+                  <p className="mb-3 text-sm font-bold uppercase tracking-wide text-zinc-700">
                     Choose a date
                   </p>
                   <div className="flex gap-2 overflow-x-auto pb-2">
@@ -272,7 +268,7 @@ export function Booking() {
                   </div>
                 </div>
                 <div>
-                  <p className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-800">
+                  <p className="mb-3 text-sm font-bold uppercase tracking-wide text-zinc-700">
                     Available times
                   </p>
                   {selectedDay ? (
@@ -294,7 +290,7 @@ export function Booking() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-sm text-slate-500">Pick a day to see available times.</p>
+                    <p className="text-sm text-zinc-700">Pick a day to see available times.</p>
                   )}
                 </div>
               </div>

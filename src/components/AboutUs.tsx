@@ -33,22 +33,24 @@ export function AboutUs() {
   return (
     <section
       id="about"
-      className="relative isolate overflow-hidden bg-[#101114] px-4 py-16 text-white sm:px-6 sm:py-20 lg:py-24"
+      className="relative isolate overflow-hidden bg-[#101114] bg-cover bg-center bg-no-repeat px-4 py-16 text-white sm:px-6 sm:py-20 lg:py-24"
+      style={{ backgroundImage: "url('/about-background.png')" }}
     >
+      <div className="pointer-events-none absolute inset-0 z-0 bg-black/70" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,199,0,0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,199,0,0.12),transparent_55%)]"
         aria-hidden="true"
       />
-      <div className="mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-[#FFC700] sm:text-sm">
             About TipTop Tyres &amp; Wheels
           </p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,6vw,3.5rem)] font-black uppercase leading-[1.05] tracking-tight">
+          <h2 className="mt-4 font-display text-[clamp(2rem,6vw,3.5rem)] font-black uppercase leading-[1.05] tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.9)]">
             Australian roads.
-            <span className="block text-[#FFC700]">Standards you can trust.</span>
+            <span className="block text-yellow-400">Standards you can trust.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-7 text-zinc-200 [text-shadow:0_2px_8px_rgba(0,0,0,0.9)] sm:text-base">
             The right tyres make every drive safer. Our Mount Druitt team pairs quality products
             with careful fitment and practical advice, helping you find the right setup for
             Australian vehicles and the roads you travel.
@@ -67,7 +69,9 @@ export function AboutUs() {
               <h3 className="mt-5 text-base font-extrabold uppercase tracking-wide text-white">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-zinc-400">{description}</p>
+              <p className="mt-2 text-sm font-medium leading-6 text-zinc-200 [text-shadow:0_2px_8px_rgba(0,0,0,0.9)]">
+                {description}
+              </p>
             </article>
           ))}
         </div>

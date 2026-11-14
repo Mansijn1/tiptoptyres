@@ -13,19 +13,19 @@ export function Header() {
             className="h-14 w-auto object-contain"
           />
         </Link>
-        <nav className="hidden items-center gap-4 text-sm font-medium lg:gap-7 md:flex">
+        <nav className="hidden items-center gap-3 text-xs font-medium md:flex md:gap-3 md:text-sm lg:gap-5">
+          <Link to="/" className="text-ink-muted hover:text-primary">
+            Home
+          </Link>
           <Link to="/about" className="text-ink-muted hover:text-primary">
             About Us
           </Link>
+          <a href="/#quick-tyre-finder" className="text-ink-muted hover:text-primary">
+            Find Tyres
+          </a>
           <Link to="/wheels" className="text-ink-muted hover:text-primary">
             Wheels
           </Link>
-          <a href="/#brands" className="text-ink-muted hover:text-primary">
-            Brands
-          </a>
-          <a href="/#location" className="text-ink-muted hover:text-primary">
-            Location
-          </a>
         </nav>
         <div className="flex items-center gap-3">
           <a
@@ -43,32 +43,32 @@ export function Header() {
         </div>
         <nav
           aria-label="Main navigation"
-          className="flex w-full items-center justify-between gap-3 overflow-x-auto border-t border-white/10 py-1 text-xs font-semibold md:hidden"
+          className="flex w-full items-center justify-start gap-4 overflow-x-auto border-t border-white/10 py-1 text-xs font-semibold md:hidden"
         >
           <Link
+            to="/"
+            className="flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+          >
+            Home
+          </Link>
+          <Link
             to="/about"
-            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+            className="flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
           >
             About Us
           </Link>
+          <a
+            href="/#quick-tyre-finder"
+            className="flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+          >
+            Find Tyres
+          </a>
           <Link
             to="/wheels"
-            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
+            className="flex min-h-11 shrink-0 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
           >
             Wheels
           </Link>
-          <a
-            href="/#brands"
-            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
-          >
-            Brands
-          </a>
-          <a
-            href="/#location"
-            className="flex min-h-11 items-center whitespace-nowrap px-1 text-ink-muted hover:text-primary"
-          >
-            Location
-          </a>
         </nav>
       </div>
     </header>
